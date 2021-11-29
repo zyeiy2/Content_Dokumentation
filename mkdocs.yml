@@ -1,0 +1,12 @@
+site_name: Continuous Deployment mit Azure DevOps
+
+theme:
+  name: material
+  font:
+    text: Arial
+  palette:
+    primary: purple
+    accent: indigo
+  features:
+    - header.autohide 
+  language: de

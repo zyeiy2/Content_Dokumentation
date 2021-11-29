@@ -1,12 +1,18 @@
+# Project information
 site_name: Continuous Deployment mit Azure DevOps
+
+# Repository
+repo_name: 'Content_Dokumentation'
+repo_url: 'https://github.com/zyeiy2/Content_Dokumentation/'
 
 theme:
   name: material
   font:
     text: Arial
-  palette:
-    primary: purple
-    accent: indigo
   features:
     - header.autohide 
   language: de
+  palette:
+    scheme: oraylis
+extra_css:  
+  - stylesheets/extra.css

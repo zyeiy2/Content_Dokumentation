@@ -18,3 +18,5 @@ Das Comitten von Code löst ein **automatisiertes Build-System** aus, das den ne
 Die kontinuierliche Integration startet den CD-Prozess und die Pipeline führt nach erfolgreichem Abschluss der Tests jede aufeinander folgende Umgebung zur nächsten.
 
 
+## Links
+[Was ist DevOps? - Azure DevOps | Microsoft Docs](https://docs.microsoft.com/de-de/devops/what-is-devops)

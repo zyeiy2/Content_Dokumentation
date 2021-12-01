@@ -105,7 +105,7 @@ python -m pip install mkdocs-material --user
 - workingDirectory $(Pipeline.Workspace)/Content_Dokumentation  
 - script   
 ```PowerShell  
-      python -m mkdocs build --clean  
+python -m mkdocs build --clean  
 ```  
 
 ##### Publish Artifact: site

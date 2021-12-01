@@ -1,5 +1,5 @@
 # Project information
-site_name: Continuous Deployment mit Azure DevOps
+site_name: ORAYLIS - Continuous Deployment mit Azure DevOps
 
 # Repository
 repo_name: 'Content_Dokumentation'
@@ -14,5 +14,7 @@ theme:
   language: de
   palette:
     scheme: oraylis
+  logo: stylesheets/favicon-76.png
+
 extra_css:  
   - stylesheets/extra.css

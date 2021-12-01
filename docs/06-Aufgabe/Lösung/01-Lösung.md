@@ -118,5 +118,10 @@ steps:
   inputs:
     targetType: inline
     script: |
+      Write-Host "Start delte https://$(storageAccount).blob.core.windows.net/$(container)"
+      azcopy rm "https://$(storageAccount).blob.core.windows.net/$(container)/$(sasToken)" --recursive=true
+      Write-Host "Finish delte https://$(storageAccount).blob.core.windows.net/$(container)"
+      Write-Host "Start upload content https://$(storageAccount).blob.core.windows.net/$(container)"
       azcopy copy $(Pipeline.Workspace)/build/site/* "https://$(storageAccount).blob.core.windows.net/$(container)/$(sasToken)" --recursive=true
+      Write-Host "Finish upload content https://$(storageAccount).blob.core.windows.net/$(container)"
 ```

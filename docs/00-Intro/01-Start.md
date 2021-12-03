@@ -11,4 +11,4 @@ In welchen Projekten bist du eingesetzt?
 ## Was sind eure Erfahrungen mit Azure Pipelines?
 Welche Erfahrungen mit Azure Pipelines konntest du schon sammeln?
 
-## Nominiere den nächsten
+## Nominiere den Nächsten

@@ -4,7 +4,7 @@
 ![Azure DevOps](Bild1.png)
 
 
-Variablen stellen eine bequeme Möglichkeit dar, wichtige Informationen in verschiedene Teile der Pipeline zu übernehmen. Die gängigste Verwendung von Variablen besteht darin, einen Wert zu definieren, den ihr dann in eurer Pipeline verwenden könnt. Alle Variablen werden als Zeichenfolgen gespeichert und können veränderlich sein. 
+Variablen stellen eine bequeme Möglichkeit dar, wichtige Informationen in verschiedene Teile der Pipeline zu übernehmen. Die gängigste Verwendung von Variablen besteht darin, einen Wert zu definieren, welchen ihr dann in eurer Pipeline verwenden könnt. Alle Variablen werden als Zeichenfolgen gespeichert und können veränderlich sein. 
 
 Einschränkungen bei der Benennung von Variablen:  
 - können Buchstaben und Zahlen enthalten  
@@ -48,7 +48,7 @@ Laufzeitausdruck|```$[variables.var]```|Laufzeit|value (rechte Seite)|Leere Zeic
 ## Welche Syntax sollte ich verwenden?
 Verwende die Makrosyntax, wenn Sie Eingaben für eine Aufgabe bereitstellen.
 
-Wähle einen einen Laufzeitausdruck aus, wenn du mit Bedingungen und Ausdrückenarbeitest. Die Ausnahme ist, wenn eine Pipeline verfügbar ist, in der das Drucken ihrer leeren Variablen zu einem Problem führt. Beispiel: Dü verfügst über eine bedingte Logik, die auf einer Variablen basiert, die über einen bestimmten Wert oder keinen Wert verfügt. In diesem Fall solltest du einen Laufzeitausdruck verwenden.
+Wähle einen einen Laufzeitausdruck aus, wenn du mit Bedingungen und Ausdrückenarbeitest. Die Ausnahme ist, wenn eine Pipeline verfügbar ist, in der das Drucken ihrer leeren Variablen zu einem Problem führt. Beispiel: Du verfügst über eine bedingte Logik, die auf einer Variablen basiert, die über einen bestimmten Wert oder keinen Wert verfügt. In diesem Fall solltest du einen Laufzeitausdruck verwenden.
 
 Wenn du eine Variable in einer Vorlage definierst, dann verwende  einen Vorlagenausdruck.
 
@@ -203,7 +203,7 @@ steps:
 ```
 
 ## Pipeline Run
-Damit die Pipeline auf die Variablengruppe zugreifen kann ist ein Permit notwendig
+Damit die Pipeline auf die Variablengruppe zugreifen kann, ist ein Permit notwendig
 ![Azure DevOps](Bild7.png)
 
 ![Azure DevOps](Bild8.png)

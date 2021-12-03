@@ -1,6 +1,6 @@
 # Templates
 
-Templates, helfen aufgaben die immer wieder ausgeführt werden müssen wiederverwendbar zu machen. 
+Templates helfen Aufgaben, welche immer wieder ausgeführt werden müssen, wiederverwendbar zu machen. 
 
 Mögliche Szenarien:   
 - Installieren von Dependencies  

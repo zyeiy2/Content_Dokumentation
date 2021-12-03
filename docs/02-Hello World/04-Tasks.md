@@ -1,6 +1,6 @@
 # Tasks
 
-Tasks in der Azure DevOps Pipeline sind das Herzstück. Es ist möglich aus den folgenden Task-Kategorien zu wählen anbei einige beispiele:  
+Tasks in der Azure DevOps Pipeline sind das Herzstück. Es ist möglich aus den folgenden Task-Kategorien zu wählen anbei einige Beispiele:  
 - Build  
 - Utility   
 - Test  

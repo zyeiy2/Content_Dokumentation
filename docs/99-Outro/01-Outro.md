@@ -27,4 +27,4 @@
 
 **Was hat noch gefehlt?**
 
-**Nominiere den nächsten**
+**Nominiere den Nächsten**

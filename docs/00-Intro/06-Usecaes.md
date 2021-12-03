@@ -3,7 +3,7 @@
 
 
 ![Azure Services Overview](Bild12.png)
-Mit Azure DevOps und den Pipelines gibt es keine Grenzen. (Fast) Alle Dienste, die Microsoft Azure anbietet, können mit den Pipelines ausgebracht und der Inhalt Deployed werden. 
+Mit Azure DevOps und den Pipelines gibt es keine Grenzen. (Fast) Alle Dienste, die Microsoft Azure anbietet, können mit den Pipelines ausgebracht und der Inhalt deployed werden. 
 
 ![Azure Services Overview](Bild10.jpg)
 

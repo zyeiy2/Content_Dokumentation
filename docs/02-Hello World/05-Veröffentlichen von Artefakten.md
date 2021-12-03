@@ -1,6 +1,6 @@
 # Veröffentlichen von Artefakten
 
-Artefakte, die während eines Builds entstehen, wollen ja auch irgendwann veröffentlicht werden. Dazu gibt es einen Task der es erlaubt die Artefakte in der Pipeline bereitzustellen.
+Artefakte, die während eines Builds entstehen, wollen ja auch irgendwann veröffentlicht werden. Dazu gibt es einen Task, welcher es erlaubt die Artefakte in der Pipeline bereitzustellen.
 
 Zum veröffentlichen von Artefakten verwenden wir den [PublishPipelineArtifact@1](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/publish-pipeline-artifact?view=azure-devops) Task. 
 

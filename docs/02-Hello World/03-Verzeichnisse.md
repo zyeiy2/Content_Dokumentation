@@ -9,7 +9,7 @@ Linux | ```/home/vsts/work/1/s```
 Mac | ```/Users/runner/work/1/s```
 
 ## Best Practice - Verzeichnisse
- Wir geben jeden Pfad auf einem Verzeichniss mit dem ```/``` *Schrägstrich* an. Damit stellen wir sicher das Pfade auf **Windows**, **Linux** und **Mac** gelesen werden können.
+ Wir geben jeden Pfad auf einem Verzeichniss mit dem ```/``` *Schrägstrich* an. Damit stellen wir sicher, dass Pfade auf **Windows**, **Linux** und **Mac** gelesen werden können.
 
 ## Wie gehen wir mit den Verzeichnissen auf den Verschiedenen Agents um?
 
@@ -19,8 +19,8 @@ Die wichtigsten im überblick:
 Variable | Beschreibung
 ---|---
 Agent.BuildDirectory | Der lokale Pfad auf dem Agent, in dem alle Ordner für eine bestimmte Buildpipeline erstellt werden. Diese Variable hat den gleichen Wert wie Pipeline.Workspace. Beispiel: ```/home/vsts/work/1```
-Build.ArtifactStagingDirectory | Der lokale Pfad auf dem Agent, in den artefakte kopiert werden, bevor sie an ihr Ziel gepusht werden. Beispiel: ```c:\agent_work\1\a```
-Build.BinariesDirectory | Der lokale Pfad auf dem Agent, den Sie als Ausgabeordner für kompilierte Binärdateien verwenden können. Standardmäßig sind keine neuen Buildpipelines zum Bereinigen dieses Verzeichnisses eingerichtet. Sie können Ihren Build definieren, um ihn auf der Registerkarte Repositoryzu bereinigen. Beispiel: ```c:\agent_work\1\b```
+Build.ArtifactStagingDirectory | Der lokale Pfad auf dem Agent, in den Artefakte kopiert werden, bevor sie an ihr Ziel gepusht werden. Beispiel: ```c:\agent_work\1\a```
+Build.BinariesDirectory | Der lokale Pfad auf dem Agent, den Sie als Ausgabeordner für kompilierte Binärdateien verwenden können. Standardmäßig sind keine neuen Buildpipelines zum bereinigen dieses Verzeichnisses eingerichtet. Sie können Ihren Build definieren, um ihn auf der Registerkarte Repositoryzu bereinigen. Beispiel: ```c:\agent_work\1\b```
 Build.Repository.LocalPath | Der lokale Pfad auf dem Agent, in den Ihre Quellcodedateien heruntergeladen werden. Beispiel: ```c:\agent_work\1\s```
 Pipeline.Workspace | Arbeitsbereichsverzeichnis für eine bestimmte Pipeline. Diese Variable hat den gleichen Wert wie ```Agent.BuildDirectory``` . Beispiel: ```/home/vsts/work/1```
 
@@ -126,8 +126,8 @@ steps:
 
 Verzeichnisse | Erklärung
 --- | ---
-a| Der lokale Pfad auf dem Agent, in den artefakte kopiert werden, bevor sie an ihr Ziel gepusht werden. Beispiel: ```c:\agent_work\1\a```
-b|  Der lokale Pfad auf dem Agent, den Sie als Ausgabeordner für kompilierte Binärdateien verwenden können. Standardmäßig sind keine neuen Buildpipelines zum Bereinigen dieses Verzeichnisses eingerichtet. Sie können Ihren Build definieren, um ihn auf der Registerkarte Repositoryzu bereinigen. Beispiel: ```c:\agent_work\1\b```
+a| Der lokale Pfad auf dem Agent, in den Artefakte kopiert werden, bevor sie an ihr Ziel gepusht werden. Beispiel: ```c:\agent_work\1\a```
+b|  Der lokale Pfad auf dem Agent, den Sie als Ausgabeordner für kompilierte Binärdateien verwenden können. Standardmäßig sind keine neuen Buildpipelines zum bereinigen dieses Verzeichnisses eingerichtet. Sie können Ihren Build definieren, um ihn auf der Registerkarte Repository zu bereinigen. Beispiel: ```c:\agent_work\1\b```
 s| Der lokale Pfad auf dem Agent, in den Ihre Quellcodedateien heruntergeladen werden. Beispiel: ```c:\agent_work\1\s```
 
 ## Zweites Repository

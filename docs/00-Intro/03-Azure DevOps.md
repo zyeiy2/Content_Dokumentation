@@ -9,7 +9,7 @@ Mehrwerten für Ihre Endnutzer ermöglicht.
 ## Was ist das Azure DevOps?
 ![Azure DevOps](Bild1.jpg)
 Moderner Entwicklungsdienst, um 
-**besser planen**, **einfacher** im Team **zusammenarbeiten** und Code **schneller ausliefern** zu können.
+**besser zu planen**, **einfacher** im Team **zusammenarbeiten** und den Code **schneller ausliefern** zu können.
 
 
 

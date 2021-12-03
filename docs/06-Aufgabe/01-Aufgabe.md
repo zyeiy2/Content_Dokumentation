@@ -1,6 +1,6 @@
 # Praktische aufgabe
 
-Wir wollen mit dem heute gewonnen wissen diese Dokumentation selbst bauen und als Website auf einem Storage bereitstellen. 
+Wir wollen mit dem heute gewonnen Wissen diese Dokumentation selbst bauen und als Website auf einem Storage bereitstellen. 
 
 ## Build  
 ![Build](Build.jpg)    

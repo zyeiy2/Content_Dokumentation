@@ -46,7 +46,7 @@ Vorlagenausdruck|```${{variables.var}}```|Kompilierzeit|Schlüssel oder Wert (li
 Laufzeitausdruck|```$[variables.var]```|Laufzeit|value (rechte Seite)|Leere Zeichenfolge
 
 ## Welche Syntax sollte ich verwenden?
-Verwende die Makrosyntax, wenn Sie Eingaben für eine Aufgabe bereitstellen.
+Verwende die Makrosyntax, wenn Sie Eingaben für eine Aufgabe bereitstellen.  
 
 Wähle einen einen Laufzeitausdruck aus, wenn du mit Bedingungen und Ausdrückenarbeitest. Die Ausnahme ist, wenn eine Pipeline verfügbar ist, in der das Drucken ihrer leeren Variablen zu einem Problem führt. Beispiel: Du verfügst über eine bedingte Logik, die auf einer Variablen basiert, die über einen bestimmten Wert oder keinen Wert verfügt. In diesem Fall solltest du einen Laufzeitausdruck verwenden.
 
@@ -81,13 +81,13 @@ Wenn es geht halten wir uns an folgenden Vorschlag:
 
 Folgt den Schritten um die Variablen an der Pipeline anzulegen:  
 1. Editiert eure Pipeline  
-2. Klickt **Variables**  
-![Azure DevOps](Bild3.png)  
-3. Klickt **New Variable**  
-4. Legt die Variablen aus der Tabelle an  
-![Azure DevOps](Bild4.png)  
-5. Klickt **Save**  
-![Azure DevOps](Bild5.png)  
+2. Klickt **Variables**    
+![Azure DevOps](Bild3.png)    
+3. Klickt **New Variable**    
+4. Legt die Variablen aus der Tabelle an    
+![Azure DevOps](Bild4.png)    
+5. Klickt **Save**    
+![Azure DevOps](Bild5.png)    
 
 
 Name | Value | Keep this value secret | Let users override this value when running this pipeline | Usage
@@ -98,13 +98,13 @@ PipelineVar_myName|Benjamin|false|false| $(PipelineVar_myName)
 
 ### Verwendung von Variablen und Secrets in der Variablengruppen
 
-Legt bitte eine Variable Gruppe mit dem Namen DEV an.
-Geht dazu wie folgt vor: 
-1. Öffnet **Library** in Azure DevOps Pipelines
-2. **+ Variable Group**
-3. Vergebt den *Variable group name* : **DEV**
-4. Fügt die Folgenden werte hinzu
-5. Klickt **Save**
+Legt bitte eine Variable Gruppe mit dem Namen DEV an.  
+Geht dazu wie folgt vor:   
+1. Öffnet **Library** in Azure DevOps Pipelines  
+2. **+ Variable Group**  
+3. Vergebt den *Variable group name* : **DEV**  
+4. Fügt die Folgenden werte hinzu  
+5. Klickt **Save**  
 
 Name | Value | Keep this value secret | Usage
 ---|---|---|---

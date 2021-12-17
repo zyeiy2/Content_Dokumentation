@@ -55,7 +55,7 @@ Geht bitte wie folgt vor, um einen Azure Storage im ORAYLIS Tennant zu erstellen
 
 ### SAS Token erstellen  
 1. Wählt im Storage Account **Shared access signature**  
-2. Klickt **Allowed resource types** Container Object
+2. Klickt **Allowed resource types** Container und Object
 3. Klickt **Generate SAS and connection string**
 4. Kopiert euch den SAS token
 

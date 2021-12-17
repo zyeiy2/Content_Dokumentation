@@ -50,3 +50,4 @@ steps:
 ## Links
 [Microsoft-hosted agents for Azure Pipelines - Azure Pipelines | Microsoft Docs
 ](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#use-a-microsoft-hosted-agent)
+[Azure DevOps Services – Preise | Microsoft Azure](https://azure.microsoft.com/de-de/pricing/details/devops/azure-devops-services/)

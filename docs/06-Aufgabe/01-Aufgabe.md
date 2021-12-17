@@ -141,7 +141,6 @@ Da das AZ Copy am besten auf Windows läuft, nutzt bitte **windows-latest**.
 ##### Export to Azure Storage
 - Task **PowerShell@2**  
 - TargetType: 'inline'  
-- workingDirectory $(Pipeline.Workspace)/Content_Dokumentation  
 - script   
 ```PowerShell  
 Write-Host "Start delte https://$(storageAccount).blob.core.windows.net/$(container)"

@@ -73,4 +73,4 @@ Eure Veröffentlichen Artifakte findet ihr in den Pipeline lauf.
 
 ## Links
 
-[PublishPipelineArtifact@1](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/publish-pipeline-artifact?view=azure-devops)
+[PublishPipelineArtifact@1](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/publish-pipeline-artifact?view=azure-devops)  

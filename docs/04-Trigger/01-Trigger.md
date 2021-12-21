@@ -231,4 +231,4 @@ Damit wir der Pipeline den Namen Release geben können, geht bitte wie folgt vor
 ## Links
 [Triggers - Azure Pipelines | Microsoft Docs](https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema#triggers)  
 [Configure schedules to run pipelines - Azure Pipelines | Microsoft Docs](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/scheduled-triggers?tabs=yaml&view=azure-devops)  
-[Crontab Expression · atifaziz/NCrontab Wiki · GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression)
+[Crontab Expression · atifaziz/NCrontab Wiki · GitHub](https://github.com/atifaziz/NCrontab/wiki/Crontab-Expression)  

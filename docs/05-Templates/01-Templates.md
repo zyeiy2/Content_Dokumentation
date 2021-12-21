@@ -131,4 +131,4 @@ steps:
 
 ## Links
 [Templates - Azure Pipelines | Microsoft Docs
-](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops)
+](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops)  

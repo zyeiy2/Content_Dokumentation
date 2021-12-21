@@ -286,4 +286,4 @@ Nach dem Umbau sehen wir das die neuen Pfade genutzt werden. 
 
 ## Links
 [Predefined variables - Azure Pipelines | Microsoft Docs](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables-devops-services)  
-[Define variables - Azure Pipelines | Microsoft Docs ](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#runtime-expression-syntax)
+[Define variables - Azure Pipelines | Microsoft Docs ](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#runtime-expression-syntax)  

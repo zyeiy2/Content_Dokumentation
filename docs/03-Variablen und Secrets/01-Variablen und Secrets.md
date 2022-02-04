@@ -92,8 +92,8 @@ Folgt den Schritten um die Variablen an der Pipeline anzulegen:
 
 Name | Value | Keep this value secret | Let users override this value when running this pipeline | Usage
 ---|---|---|---|--- 
-PipelineVar_mySecret|mySecretValue|true|false| $(PipelineVar_mySecret)
-PipelineVar_myName|Benjamin|false|false| $(PipelineVar_myName)
+PipelineVar_mySecret|mySecretValue|true|true| $(PipelineVar_mySecret)
+PipelineVar_myName|Benjamin|false|true| $(PipelineVar_myName)
 
 
 ### Verwendung von Variablen und Secrets in der Variablengruppen

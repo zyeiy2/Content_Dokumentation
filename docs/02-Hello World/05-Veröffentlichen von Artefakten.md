@@ -65,7 +65,7 @@ steps:
     artifactName: logs
 ```
 ## Published artifacts
-Eure Veröffentlichen Artifakte findet ihr in den Pipeline lauf.
+Eure Veröffentlichen Artifakte findet ihr in dem Pipeline lauf.
 
 ![Azure DevOps](Bild16.png)
 

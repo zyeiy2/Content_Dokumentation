@@ -66,8 +66,8 @@ steps:
 ## Pipeline umbenennen
 
 Damit wir der Pipeline den Namen Build geben können, geht bitte wie folgt vor:  
-1. Klickt auf Schulung  
-2. Wählt im Menü ⁝  *Rename/move*   
+1. Wählt das ⁝ Menü 
+2. Wählt im Menü   *Rename/move*   
 3. Ändert den namen in **Build** 
 
 ![Bild8.png](Bild8.png) 

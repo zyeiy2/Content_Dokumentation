@@ -66,8 +66,7 @@ Habt ihr folgende werte:
 - SAS Token  
 
 
-
-## Pipelies Umbauen
+## Pipelines Umbauen
 
 ### build.yml
 
@@ -109,7 +108,7 @@ python -m mkdocs build --clean
 ```  
 
 ##### Publish Artifact: site
-- Task: PublishBuildArtifacts@1
+- Task: **PublishBuildArtifacts@1**
 - Inputs siehe Tabelle   
 
 artifactName | PathtoPublish

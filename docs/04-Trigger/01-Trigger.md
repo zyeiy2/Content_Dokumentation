@@ -220,7 +220,7 @@ steps:
 ## Pipeline umbenennen
 
 Damit wir der Pipeline den Namen Release geben können, geht bitte wie folgt vor:  
-1. Klickt auf das ⁝ Menü
+1. Klickt auf das ⁝ Menü  
 2. Wählt im Menü *Rename/move*   
 3. Ändert den namen in **Release** 
 

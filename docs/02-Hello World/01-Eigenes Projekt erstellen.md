@@ -1,6 +1,6 @@
 # Let's go
 
-## Discalaimer
+## Disclaimer
 Jedes **Projekt** und die damit verbundenen Anforderungen sind **unterschiedlich**. Wir können heute keine Standards für alle Deployments finden. Wichtig ist es ein Gefühl für Azure Pipelines zu bekommen und ein erstes begleitetes Hands-On zu erleben. 
 
 ## Eigenes Projekt erstellen

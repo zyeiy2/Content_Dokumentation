@@ -101,7 +101,7 @@ python -m pip install mkdocs-material --user
 ##### Build Site
 - Task **PowerShell@2**  
 - TargetType: 'inline'  
-- workingDirectory $(Pipeline.Workspace)/Content_Dokumentation  
+- workingDirectory: $(Pipeline.Workspace)/Content_Dokumentation  
 - script   
 ```PowerShell  
 python -m mkdocs build --clean  

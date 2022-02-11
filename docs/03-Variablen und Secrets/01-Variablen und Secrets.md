@@ -216,3 +216,4 @@ Damit die Pipeline auf die Variablengruppe zugreifen kann, ist ein Permit notwen
 [Secret Variables - Azure Pipelines | Microsoft Docs](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)   
 [Variable groups for Azure Pipelines - Azure Pipelines | Microsoft Docs
 ](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml)  
+[How to Use Key Vault Secrets in Azure Pipelines | by David Olivas | Geek Culture | Medium](https://medium.com/geekculture/how-to-use-key-vault-secrets-in-azure-pipelines-658198f2eea6)

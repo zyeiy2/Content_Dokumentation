@@ -113,7 +113,7 @@ python -m mkdocs build --clean
 
 artifactName | PathtoPublish
 ---|---
-'site' | PathtoPublish: $(Pipeline.Workspace)/Content_Dokumentation/site
+'site' | $(Pipeline.Workspace)/Content_Dokumentation/site
 
 
 ### release.yml

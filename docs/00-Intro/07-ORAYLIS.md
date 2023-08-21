@@ -1,7 +1,7 @@
-## ORAYLIS Technologien
+# ORAYLIS
 Anbei findest du eine Übersicht von häufig verwendeten Technologien bei ORAYLIS und einen kurzen Überblick, was wichtig ist. Außerdem findest du immer noch am Ende ein paar wichtige Links dazu.
 
-### Azure Databricks
+## Azure Databricks
 Hier ist eine Schritt-für-Schritt-Anleitung, wie Sie Databricks-Notebooks aus einem Azure DevOps-Repository heraus in Azure Databricks bereitstellen können:
 
 **Voraussetzungen:**
@@ -42,7 +42,7 @@ Diese Anleitung gibt dir eine grundlegende Vorstellung davon, wie du Databricks-
 **Links für Azure Databricks**  
 [Continuous integration and delivery on Azure Databricks using Azure DevOps](https://learn.microsoft.com/en-us/azure/databricks/dev-tools/ci-cd/ci-cd-azure-devops)
 
-### Azure Synapse 
+## Azure Synapse 
 
 Diese Anleitung zeigt, wie du die Bereitstellungsaufgabe (deployment task) in Azure Synapse mithilfe von Azure DevOps konfigurierst. Die Bereitstellungsaufgabe unterstützt drei Arten von Operationen: nur validieren, bereitstellen und validieren, sowie bereitstellen.
 

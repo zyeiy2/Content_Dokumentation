@@ -1,4 +1,4 @@
-# Lösung
+# Links
 
 ## Invoke-Dokumentation.yml
 ```yaml
@@ -66,6 +66,7 @@ steps:
     script: |
       python -m pip install mkdocs --user
       python -m pip install mkdocs-material --user
+      python -m pip install mkdocs-glightbox --user
 
 - task: PowerShell@2
   displayName: 'Build Site'

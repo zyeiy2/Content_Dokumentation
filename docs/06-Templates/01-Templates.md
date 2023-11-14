@@ -53,11 +53,11 @@ Das Template lädt aus dem [GitHub Repository](https://github.com/zyeiy2/Content
 
 ## Pipeline umbau
 
-### hinzufügen 
+### ➕ hinzufügen 
 ```yaml
 - template: templates/Invoke-Dokumentation.yml@code
 ```
-### entfernen
+### ➖ entfernen
 ```yaml
 - task: PowerShell@2
   displayName: Print Variable

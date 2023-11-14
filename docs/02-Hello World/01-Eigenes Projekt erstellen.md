@@ -1,8 +1,5 @@
 # Let's go
 
-## Disclaimer
-Jedes **Projekt** und die damit verbundenen Anforderungen sind **unterschiedlich**. Wir können heute keine Standards für alle Deployments finden. Wichtig ist es ein Gefühl für Azure Pipelines zu bekommen und ein erstes begleitetes Hands-On zu erleben. 
-
 ## Eigenes Projekt erstellen
 Wir erstellen unser eigenes Projekt:  
 1. Öffnet [dev.azure.com](https://dev.azure.com/)    
@@ -11,16 +8,14 @@ Wir erstellen unser eigenes Projekt:
   ![Bild1.png](Bild1.png)   
 4. Terms and Condition -> Continue  
 5. Vergebt einen Organisationsnamen  
-6. In West Europe  
+6. In **North Europe** alternativ **West Europe** 
 7. Solve the Captcha  
 ![Bild2.png](Bild2.png)  
 8. Vergebt einen Projektnamen **Schulung**   
 9. Klickt **+ Create project** 
 ![Bild3.png](Bild3.png)  
 10. Klickt auf Repos dann **Initialize**    
-![Bild4.png](Bild4.png)  
-
-
+![Bild4.png](Bild4.png) 
 ![Bild5.png](Bild5.png) 
 
 ## Pipeline Erstellen
@@ -32,7 +27,8 @@ Wir erstellen unser eigenes Projekt:
 4. Wählt Schulung   
 5. Wählt Starter Pipeline  
 6. Ändert den Namen in **build.yml** 
-7. Save and Run   
+7. Save and Run  
+
 ```yaml
 # Starter pipeline
 # Start with a minimal pipeline that you can customize to build and deploy your code.
@@ -55,7 +51,6 @@ steps:
   displayName: 'Run a multi-line script'
 
 ```
-
 
 
 ## Ergebnis des Pipeline-Laufs

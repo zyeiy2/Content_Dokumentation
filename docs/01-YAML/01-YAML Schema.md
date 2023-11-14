@@ -2,26 +2,7 @@
 
 **YAML**  ist eine strenge Obermenge von **JSON**, mit dem Zusatz von syntaktisch bedeutsamen Zeilenumbrüchen und Einrückungen, wie bei Python. Im Gegensatz zu Python sind bei YAML jedoch **keine wörtlichen Tabulatorzeichen** zur Einrückung erlaubt.
 
-![Azure DevOps](Bild1.png)
-
-[Learn yaml in Y Minutes (learnxinyminutes.com)
-](https://learnxinyminutes.com/docs/yaml/)
-
-<br>
-<br>
-<br>
-
----
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+[Learn yaml in Y Minutes (learnxinyminutes.com)](https://learnxinyminutes.com/docs/yaml/)
 
 ```
 # Comments in YAML look like this.

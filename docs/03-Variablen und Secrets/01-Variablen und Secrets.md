@@ -1,9 +1,5 @@
 # Variablen und Secrets
 
-
-![Azure DevOps](Bild1.png)
-
-
 Variablen stellen eine bequeme Möglichkeit dar, wichtige Informationen in verschiedene Teile der Pipeline zu übernehmen. Die gängigste Verwendung von Variablen besteht darin, einen Wert zu definieren, welchen ihr dann in eurer Pipeline verwenden könnt. Alle Variablen werden als Zeichenfolgen gespeichert und können veränderlich sein. 
 
 Einschränkungen bei der Benennung von Variablen:  
@@ -36,7 +32,6 @@ variables :
     echo $(MinorVersion)
   displayName: Print Variables
 ```
-
 
 ## Verwendung von Variablen
 Syntax | Beispiel| Wann wird er verarbeitet?| Wo wird sie in einer Pipelinedefinition erweitert? | Wie wird es gerendert, wenn es nicht gefunden wird?
@@ -78,7 +73,6 @@ Wenn es geht halten wir uns an folgenden Vorschlag:
 
 
 ### Verwendung von Variablen und Secrets an der Pipeline  
-
 Folgt den Schritten um die Variablen an der Pipeline anzulegen:  
 1. Editiert eure Pipeline  
 2. Klickt **Variables**    
@@ -97,7 +91,6 @@ PipelineVar_myName|Benjamin|false|true| $(PipelineVar_myName)
 
 
 ### Verwendung von Variablen und Secrets in der Variablengruppen
-
 Legt bitte eine Variable Gruppe mit dem Namen DEV an.  
 Geht dazu wie folgt vor:   
 1. Öffnet **Library** in Azure DevOps Pipelines  
@@ -111,14 +104,12 @@ Name | Value | Keep this value secret | Usage
 VariableGroup_EnvName|DEV|false|$(VariableGroup_EnvName)
 VariableGroup_User|Reader|false|$(VariableGroup_User)
 VariableGroup_Password|ORAYLIS123|true|$(VariableGroup_Password)
-
 ![Azure DevOps](Bild6.png) 
-
 
 ## Pipeline umbau
 Ändert die **Build Pipeline** wie folgt:
 
-### hinzufügen
+### ➕ hinzufügen
 ```yaml
 variables:
 - group: DEV
@@ -139,7 +130,6 @@ variables:
 ```
 
 ### build.yml
-
 ```yaml
 resources:
  repositories:
@@ -205,12 +195,9 @@ steps:
 ## Pipeline Run
 Damit die Pipeline auf die Variablengruppe zugreifen kann, ist ein Permit notwendig
 ![Azure DevOps](Bild7.png)
-
 ![Azure DevOps](Bild8.png)
 
-
 ## Links
-
 [Define variables - Azure Pipelines | Microsoft Docs
 ](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch)  
 [Secret Variables - Azure Pipelines | Microsoft Docs](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)   

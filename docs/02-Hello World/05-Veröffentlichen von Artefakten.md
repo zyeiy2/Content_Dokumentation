@@ -7,7 +7,7 @@ Zum veröffentlichen von Artefakten verwenden wir den [PublishPipelineArtifact@1
 ## Pipeline umbau
 Ändert die **Build Pipeline** wie folgt:
 
-### hinzufügen
+### ➕ hinzufügen
 ```yaml
 - task: PublishPipelineArtifact@1
   displayName: Publish Pipeline Artifact

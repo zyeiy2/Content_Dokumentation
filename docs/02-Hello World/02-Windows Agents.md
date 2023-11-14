@@ -4,23 +4,31 @@
 
 Der Azure Pipelines-Agent-Pool bietet mehrere VM-Images zur Auswahl, die jeweils eine breite Palette von Tools und Software enthalten.
 
- Image | Spezifikation des klassischen Editor-Agents | YAML-VM-Imagebezeichnung | Enthaltene Software |
- --- | --- | --- | --- 
-Windows Server 2022 mit Visual Studio 2022 |  windows-2022 |  ```windows-latest``` ODER ```windows-2022``` | [Link](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2022-Readme.md) 
- Windows Server 2019 mit Visual Studio 2019|windows-2019 | ```windows-2019``` | [Link](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md) 
-Ubuntu 22.04 |ubuntu-22.04 |```ubuntu-latest``` ODER ```ubuntu-22.04``` | [Link](https://github.com/actions/runner-images/blob/ubuntu22/20230305.1/images/linux/Ubuntu2204-Readme.md) 
-Ubuntu 20.04 |ubuntu-20.04 |```ubuntu-20.04``` | [Link](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md) 
-Ubuntu 18.04 |ubuntu-18.04 |```ubuntu-18.04```| [Link](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md) 
-macOS 11 Big Sur |macOS-11 |```macOS-11``` | [Link](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11-Readme.md) 
-macOS X Mojave 10.14 |macOS-10.14 |```macOS-10.14``` | [Link](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.14-Readme.md) 
-macOS X Catalina 10.15 |macOS-10.15 |```macOS-latest``` ODER ```macOS-10.15``` | [Link](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md) 
+| Image | YAML Label | Included Software | Rollout Progress of Latest Image Release |
+| --- | --- | --- | --- |
+| Ubuntu 22.04 | `ubuntu-latest` or `ubuntu-22.04` | [ubuntu-22.04] | [![status22](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=ubuntu22&badge=1)](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=ubuntu22&redirect=1)
+| Ubuntu 20.04 | `ubuntu-20.04` | [ubuntu-20.04] | [![status20](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=ubuntu20&badge=1)](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=ubuntu20&redirect=1)
+| macOS 13 [beta] | `macos-13` or `macos-13-xl`| [macOS-13] | [![statusumac13](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=macos-13&badge=1)](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=macos-13&redirect=1)
+| macOS 12 | `macos-latest`, `macos-latest-xl`, `macos-12`, or `macos-12-xl`| [macOS-12] | [![statusumac12](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=macos-12&badge=1)](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=macos-12&redirect=1)
+| macOS 11 | `macos-11`| [macOS-11] | [![statusmac11](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=macos-11&badge=1)](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=macos-11&redirect=1)
+| Windows Server 2022 | `windows-latest` or `windows-2022` | [windows-2022] | [![statuswin22](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=windows-2022&badge=1)](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=windows-2022&redirect=1) |
+| Windows Server 2019 | `windows-2019` | [windows-2019] | [![statuswin19](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=windows-2019&badge=1)](https://gh-runnerimagesdeploymentstatus.azurewebsites.net/api/status?imageName=windows-2019&redirect=1)
 
 
+[ubuntu-22.04]: https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
+[ubuntu-20.04]: https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md
+[windows-2022]: https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md
+[windows-2019]: https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md
+[macOS-11]: https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md
+[macOS-12]: https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md
+[macOS-13]: https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md
+[macOS-10.15]: https://github.com/actions/runner-images/blob/main/images/macos/macos-10.15-Readme.md
+[self-hosted runners]: https://help.github.com/en/actions/hosting-your-own-runners
 
 ## Pipeline umbau
 Ändert die **Build Pipeline** wie folgt:
 
-### ändern
+### 🏗️ ändern 
 ```yaml
 trigger: none
 ```
@@ -47,7 +55,7 @@ steps:
 ```
 
 
-
 ## Links
 [Microsoft-hosted agents for Azure Pipelines - Azure Pipelines | Microsoft Docs](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#use-a-microsoft-hosted-agent)    
 [Azure DevOps Services – Preise | Microsoft Azure](https://azure.microsoft.com/de-de/pricing/details/devops/azure-devops-services/)  
+[Runner Images - Actions | GitHub](https://github.com/actions/runner-images/tree/main)

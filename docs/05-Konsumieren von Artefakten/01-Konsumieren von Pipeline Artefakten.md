@@ -6,7 +6,7 @@ Damit die Artefakte, welche in der Build Pipeline erstellt wurden, auch in ander
 
 ## Pipeline umbau 
 
-### hinzufügen 
+### ➕ hinzufügen 
 ```yaml
 - download: build
 ```
@@ -18,7 +18,7 @@ Damit die Artefakte, welche in der Build Pipeline erstellt wurden, auch in ander
     script: |
       tree $(Pipeline.Workspace) /a
 ```
-### entfernen
+### ➖ entfernen
 ```yaml
 - script: echo Hello, world!
   displayName: 'Run a one-line script'

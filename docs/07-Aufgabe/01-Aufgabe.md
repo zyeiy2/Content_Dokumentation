@@ -65,7 +65,6 @@ Habt ihr folgende werte:
 - URL der Static WebSite  
 - SAS Token  
 
-
 ## Pipelines Umbauen
 
 ### build.yml
@@ -96,6 +95,7 @@ versionSpec | addToPath | architecture
 ```PowerShell  
 python -m pip install mkdocs --user  
 python -m pip install mkdocs-material --user  
+python -m pip install mkdocs-glightbox --user
 ```  
 
 ##### Build Site
@@ -120,8 +120,8 @@ artifactName | PathtoPublish
 Variables
 
 Name | Value 
----|---
-container | **`$web**
+--- | ---
+container | **`$web** 
 sasToken | Value of SAS Token
 storageAccount | Value of Storage Account Name
 

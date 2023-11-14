@@ -2,33 +2,35 @@
 
 ## Pipeline structure
 
-Eine Pipeline umfasst eine oder mehrere Stages, die einen CI/CD-Prozess beschreiben. Stages sind die Hauptbereiche in einer Pipeline. Die Stages "Build this app", "Run these tests" und "Deploy to preproduction" sind gute Beispiele.
+Eine Pipeline in Azure DevOps besteht aus einer oder mehreren Stages, die den CI/CD-Prozess definieren. Stages sind die zentralen Abschnitte einer Pipeline und repräsentieren wichtige Etappen im Deploymentzyklus. Beispiele für Stages sind "Build App", "Testen der App" und "Bereitstellung in Test".
 
-Eine Phase sind ein oder mehrere Jobs, bei denen es sich um Arbeitseinheiten handelt, die demselben Computer zugewiesen werden können. Sie können Stages und Jobs in Abhängigkeitsdiagrammen anordnen. Beispiele hierfür sind "Diese Phase vor dieser Phase ausführen" und "Dieser Job hängt von der Ausgabe dieses Jobs ab".
+Innerhalb einer Stage können Stages definiert werden, die wiederum ein oder mehrere Jobs enthalten. Stages sind logische Gruppierungen von Jobs, die auf dem gleichen Computer ausgeführt werden können. Die Anordnung von Stages und Jobs kann in Abhängigkeitsdiagrammen festgelegt werden, z. B. "Führe diese Phase vor dieser Phase aus" oder "Dieser Job ist abhängig von der Ausgabe dieses Jobs".
 
-Ein Job ist eine lineare Abfolge von Steps. Steps können Aufgaben, Skripts oder Verweise auf externe Vorlagen sein.
+Ein Job ist eine lineare Abfolge von Steps, die verschiedene Aufgaben, Skripte oder Verweise auf externe Vorlagen ausführen können. Die YAML-Datei strukturiert sich entsprechend dieser Hierarchie:
 
-This hierarchy is reflected in the structure of a YAML file like:
+![Stages](Stages.drawio.png)
 
+```yaml
 - Pipeline
-    - Stage A
-        - Job 1
-            - Step 1.1
-            - Step 1.2
-            - ...
-        - Job 2
-            - Step 2.1
-            - Step 2.2
-            - ...
-    - Stage B
-        - ...
+    - Stage Build App
+        - Job Pre Build
+            - Step Install Dependencies
+        - Job Build
+            - Step Build Dependencies
+            - Step Build App
+    - Stage Testen der App
+        - Job Test 
+            - Step Testen der App
+    - Stage Bereitstellung in Test
+        - Job Deploy
+            - Step Löschen alte App
+            - Step Deploy neue App
+```
 
-Für einfache Pipelines sind nicht alle diese Ebenen erforderlich. Beispielsweise können Sie in einem Einzelauftragsbuild die Container für Phasen und Aufträge weglassen, da es nur Steps gibt. Da viele in diesem Abschnitt gezeigte Optionen nicht erforderlich sind und über gute Standardwerte verfügen, ist es unwahrscheinlich, dass Ihre YAML-Definitionen alle enthalten.
+Es ist wichtig zu beachten, dass nicht alle Ebenen dieser Hierarchie für einfache Pipelines zwingend erforderlich sind. In einem einfachen Builds können Phasen und Jobs möglicherweise ausgelassen werden, da nur Steps vorhanden sind. Viele der in diesem Abschnitt gezeigten Optionen sind optional und haben bereits sinnvolle Standardwerte. Daher ist es unwahrscheinlich, dass alle möglichen YAML-Definitionen in Ihrer Konfiguration enthalten sind.
 
 **Beispiel einer Pipeline:** 
 ![Azure DevOps](Bild11.png)
-
-
 
 ### Trigger
 ```yaml
@@ -96,15 +98,16 @@ Möglichkeiten sind:
 
 ## Glossar
 
-Begriff | Erklärung 
---- |---
-Stage | Eine Phase ist eine Sammlung von zusammenhängenden Aufträgen. Standardmäßig werden Schritte sequentiell ausgeführt. Jede Stufe beginnt erst, wenn die vorhergehende Stufe abgeschlossen ist, es sei denn, über die Eigenschaft dependsOn wird etwas anderes angegeben.
-Job | Ein Job ist eine Sammlung von Schritten, die von einem Agenten oder auf einem Server ausgeführt werden. Aufträge können unter bestimmten Bedingungen laufen und von früheren Aufträgen abhängen.
-Step | Ein Step ist eine lineare Abfolge von Vorgängen, aus denen ein Auftrag besteht. Jeder Step läuft in einem eigenen Prozess auf einem Agenten und hat Zugriff auf den Pipeline-Arbeitsbereich auf einer lokalen Festplatte.
-Task | Tasks sind die Bausteine einer Pipeline.
-Resources | Eine Ressource ist ein externer Dienst, der als Teil der Pipeline genutzt wird.
-Triggers | Ein Trigger legt fest, welche Zweige oder Zeiten einen Build  auslösen.
-Publish | Das Schlüsselwort publish ist eine Abkürzung für die Aufgabe Publish Pipeline Artifact. Mit dieser Aufgabe wird eine Datei oder ein Ordner als Pipeline-Artefakt veröffentlicht (hochgeladen), das von anderen Aufträgen und Pipelines verwendet werden kann.
-Download | Das Schlüsselwort download ist eine Abkürzung für die Aufgabe Pipeline-Artefakte herunterladen. Die Aufgabe lädt Artefakte herunter, welche mit dem aktuellen Lauf oder von einer anderen Azure-Pipeline, die als Pipeline-Ressource zugeordnet ist, verbunden sind.
-Checkout | Aufträge, welche nicht der Bereitstellung dienen, checken automatisch den Quellcode aus. 
+| Begriff | Erklärung | Position | 
+|--- | --- | --- | 
+| Resources | Eine Ressource ist ein externer Dienst, der als Teil der Pipeline genutzt wird.| <font color="green">Header</font> | 
+| Triggers | Ein Trigger legt fest, welche Zweige oder Zeiten einen Build  auslösen.|  <font color="green">Header</font> | 
+| Pool | Ein Agentenpool in Azure DevOps ermöglicht es, mehrere Build- und Release-Agents in einer Gruppe zu organisieren, die gemeinsame Konfigurationseinstellungen und Sicherheitseinstellungen teilen. Dies erleichtert die Verwaltung und Skalierung der Build- und Release-Infrastruktur.|  <font color="green">Header</font> | 
+| Stage | Eine Phase ist eine Sammlung von zusammenhängenden Aufträgen. Standardmäßig werden Schritte sequentiell ausgeführt. Jede Stufe beginnt erst, wenn die vorhergehende Stufe abgeschlossen ist, es sei denn, über die Eigenschaft dependsOn wird etwas anderes angegeben.| <font color="red">Body</font> | 
+| Job | Ein Job ist eine Sammlung von Schritten, die von einem Agenten oder auf einem Server ausgeführt werden. Aufträge können unter bestimmten Bedingungen laufen und von früheren Aufträgen abhängen. | <font color="red">Body</font> | 
+| Step | Ein Step ist eine lineare Abfolge von Vorgängen, aus denen ein Auftrag besteht. Jeder Step läuft in einem eigenen Prozess auf einem Agenten und hat Zugriff auf den Pipeline-Arbeitsbereich auf einer lokalen Festplatte.|  <font color="red">Body</font> | 
+| Task | Tasks sind die Bausteine einer Pipeline. |  <font color="red">Body</font> | 
+|Publish | Das Schlüsselwort publish ist eine Abkürzung für die Aufgabe Publish Pipeline Artifact. Mit dieser Aufgabe wird eine Datei oder ein Ordner als Pipeline-Artefakt veröffentlicht (hochgeladen), das von anderen Aufträgen und Pipelines verwendet werden kann. | <font color="red">Body</font> | 
+| Download | Das Schlüsselwort download ist eine Abkürzung für die Aufgabe Pipeline-Artefakte herunterladen. Die Aufgabe lädt Artefakte herunter, welche mit dem aktuellen Lauf oder von einer anderen Azure-Pipeline, die als Pipeline-Ressource zugeordnet ist, verbunden sind.| <font color="red">Body</font> | 
+| Checkout | Aufträge, welche nicht der Bereitstellung dienen, checken automatisch den Quellcode aus. | <font color="red">Body</font> | 
 

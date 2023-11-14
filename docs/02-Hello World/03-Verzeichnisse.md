@@ -2,8 +2,8 @@
 
 Damit **Code Artefakte** verarbeitet werden können müssen diese auf dem Build Agent gespeichert werden. Dazu gibt es verschiedene Möglichkeiten diese Artefakte auf den Build Agent zu bekommen. Ein **Check-out** aus dem Repository oder ein **Download** aus der Pipeline ist ebenfalls möglich.  
 
-OS | Verzeichniss
----|---
+OS | Verzeichnissstruktur
+--- | ---
 Windows | ```D:\a\1\s```
 Linux | ```/home/vsts/work/1/s```
 Mac | ```/Users/runner/work/1/s```
@@ -12,28 +12,27 @@ Mac | ```/Users/runner/work/1/s```
  Wir geben jeden Pfad auf einem Verzeichniss mit dem ```/``` *Schrägstrich* an. Damit stellen wir sicher, dass Pfade auf **Windows**, **Linux** und **Mac** gelesen werden können.
 
 ## Wie gehen wir mit den Verzeichnissen auf den Verschiedenen Agents um?
-
 Damit wir uns nicht um die verschiedenen Verzeichnisse der Agents kümmern müssen gibt es Variablen welche verwendet werden können.
 Die wichtigsten im überblick: 
 
-Variable | Beschreibung
----|---
-Agent.BuildDirectory | Der lokale Pfad auf dem Agent, in dem alle Ordner für eine bestimmte Buildpipeline erstellt werden. Diese Variable hat den gleichen Wert wie Pipeline.Workspace. Beispiel: ```/home/vsts/work/1```
-Build.ArtifactStagingDirectory | Der lokale Pfad auf dem Agent, in den Artefakte kopiert werden, bevor sie an ihr Ziel gepusht werden. Beispiel: ```c:\agent_work\1\a```
-Build.BinariesDirectory | Der lokale Pfad auf dem Agent, den Sie als Ausgabeordner für kompilierte Binärdateien verwenden können. Standardmäßig sind keine neuen Buildpipelines zum bereinigen dieses Verzeichnisses eingerichtet. Sie können Ihren Build definieren, um ihn auf der Registerkarte Repositoryzu bereinigen. Beispiel: ```c:\agent_work\1\b```
-Build.Repository.LocalPath | Der lokale Pfad auf dem Agent, in den Ihre Quellcodedateien heruntergeladen werden. Beispiel: ```c:\agent_work\1\s```
-Pipeline.Workspace | Arbeitsbereichsverzeichnis für eine bestimmte Pipeline. Diese Variable hat den gleichen Wert wie ```Agent.BuildDirectory``` . Beispiel: ```/home/vsts/work/1```
+|Variable | Beschreibung |  Verwendung  | Pfad |
+| --- | --- | --- | --- |
+| - **Agent.BuildDirectory**  <br> - **Pipeline.Workspace** | Der lokale Pfad auf dem Agent, in dem alle Ordner für eine bestimmte Buildpipeline erstellt werden.   |  ```$(Agent.BuildDirectory)``` <br> ```$(Pipeline.Workspace)``` | ```c:\agent_work\1``` |
+| **Build.ArtifactStagingDirectory** | Der lokale Pfad auf dem Agent, in den Artefakte kopiert werden, bevor sie an ihr Ziel gepusht werden. | ```$(Build.ArtifactStagingDirectory)``` | ```c:\agent_work\1\a``` |
+| **Build.BinariesDirectory** | Der lokale Pfad auf dem Agent, den Sie als Ausgabeordner für kompilierte Binärdateien verwenden können. Standardmäßig sind keine neuen Buildpipelines zum bereinigen dieses Verzeichnisses eingerichtet. Sie können Ihren Build definieren, um ihn auf der Registerkarte Repositoryzu bereinigen. | ```$(Build.BinariesDirectory)``` | ```c:\agent_work\1\b``` |
+| **Build.Repository.LocalPath** | Der lokale Pfad auf dem Agent, in den Ihre Quellcodedateien heruntergeladen werden. | ```$(Build.Repository.LocalPath)``` | ```c:\agent_work\1\s``` |
+
 
 ## Verwendung von Variablen
-Syntax | Beispiel| Wann wird er verarbeitet?| Wo wird sie in einer Pipelinedefinition erweitert? | Wie wird es gerendert, wenn es nicht gefunden wird?
----|---|---|---|---
-Makro|```$(var)```|Runtime, bevor ein Task ausgeführt wird|value (rechte Seite)|	Druckt ```$(var)```
+Syntax | Beispiel
+---|---
+Makro|```$(var)```
 
 
 ## Pipeline umbau
 Ändert die **Build Pipeline** wie folgt:
 
-### hinzufügen
+### ➕ hinzufügen 
 ```yaml
 steps:
 - checkout: self
@@ -58,7 +57,7 @@ steps:
       tree $(Pipeline.Workspace) /a
 ```
 
-### entfernen
+### ➖ entfernen
 ```yaml
 - script: echo Hello, world!
   displayName: 'Run a one-line script'```
@@ -122,14 +121,6 @@ steps:
 ```
 ![Azure DevOps](Bild10.png)
 
-### a|b|s Verzeichnisse
-
-Verzeichnisse | Erklärung
---- | ---
-a| Der lokale Pfad auf dem Agent, in den Artefakte kopiert werden, bevor sie an ihr Ziel gepusht werden. Beispiel: ```c:\agent_work\1\a```
-b|  Der lokale Pfad auf dem Agent, den Sie als Ausgabeordner für kompilierte Binärdateien verwenden können. Standardmäßig sind keine neuen Buildpipelines zum bereinigen dieses Verzeichnisses eingerichtet. Sie können Ihren Build definieren, um ihn auf der Registerkarte Repository zu bereinigen. Beispiel: ```c:\agent_work\1\b```
-s| Der lokale Pfad auf dem Agent, in den Ihre Quellcodedateien heruntergeladen werden. Beispiel: ```c:\agent_work\1\s```
-
 ## Zweites Repository
 Legt ein zweites Repository mit dem Namen **Code** an geht dazu wie folgt vor.
 
@@ -174,7 +165,7 @@ Get-Process | Out-String | Set-Content -Path $Path\$Name
 ## Pipeline umbau
 Ändert die **Build Pipeline** wie folgt:
 
-### hinzufügen
+### ➕ hinzufügen
 ```yaml
 resources:
  repositories:
@@ -237,7 +228,7 @@ Damit wir keine Probleme mit dem Check-out oder den Pfaden haben werden wir imme
 ## Pipeline umbau
 Ändert die **Build Pipeline** wie folgt:
 
-### ändern
+### 🏗️ ändern
 ```yaml
 steps:
 - checkout: self

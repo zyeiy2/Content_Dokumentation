@@ -1,21 +1,6 @@
 # Ende
 
 ![Agenda](Agenda.png)
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
----
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ![Feedback](Bild1.png)
 

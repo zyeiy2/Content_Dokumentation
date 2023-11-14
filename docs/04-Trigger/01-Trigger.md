@@ -1,6 +1,5 @@
 # Trigger
-
-![Azure DevOps](Bild1.png)
+![Trigger](Trigger.drawio.png)
 
 Es gibt vier verschiedene Trigger:   
 1. Push - Ein Commit in eine Definierte Branch löst den Pipeline Run aus  
@@ -154,6 +153,8 @@ resources:
         - users/*
 ```
 
+![Azure DevOps](Bild1.png)
+
 ## Pipeline Erstellen
 
 1. Klickt auf Pipelines    
@@ -164,11 +165,11 @@ resources:
 6. Ändert den Namen in **release.yml** 
 
 ## Pipeline umbau
-### ändern
+### 🏗️ ändern
 ```yaml
 trigger: none
 ```
-### hinzufügen 
+### ➕ hinzufügen 
 ```yaml
 resources:
  pipelines:
@@ -181,7 +182,7 @@ resources:
          include:
            - main
 ```
-### entfernen
+### ➖ entfernen
 ```yaml
 # Starter pipeline
 # Start with a minimal pipeline that you can customize to build and deploy your code.

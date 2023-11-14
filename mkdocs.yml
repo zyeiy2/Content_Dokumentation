@@ -19,12 +19,12 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: oraylis
-      toggel: 
+      toggle: 
         icon: material/weather-night
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      toggel:
+      toggle:
         icon: material/weather-sunny
         name: Switch to light mode
   logo: stylesheets/favicon-76.png
@@ -32,7 +32,6 @@ theme:
 plugins: 
   - search
   - glightbox
-
 
 extra_css:  
   - stylesheets/extra.css

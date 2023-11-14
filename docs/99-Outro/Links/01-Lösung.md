@@ -1,4 +1,9 @@
-# Links
+---
+search:
+  exclude: true
+---
+
+# Lösung
 
 ## Invoke-Dokumentation.yml
 ```yaml

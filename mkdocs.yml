@@ -16,6 +16,7 @@ theme:
     - content.code.annotate
     - navigation.top
     - navigation.footer
+    - toc.integrate 
   language: de
   palette:
     - media: "(prefers-color-scheme: light)"

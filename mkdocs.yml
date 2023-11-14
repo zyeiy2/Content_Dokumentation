@@ -15,6 +15,7 @@ theme:
     - content.code.select
     - content.code.annotate
     - navigation.top
+    - navigation.footer
   language: de
   palette:
     - media: "(prefers-color-scheme: light)"

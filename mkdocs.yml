@@ -17,6 +17,7 @@ theme:
     - navigation.top
     - navigation.footer
     - toc.integrate 
+    - search.share
   language: de
   palette:
     - media: "(prefers-color-scheme: light)"

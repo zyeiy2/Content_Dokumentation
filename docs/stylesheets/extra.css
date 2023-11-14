@@ -3,3 +3,9 @@
     --md-primary-fg-color--light: #BA0C2F;
     --md-primary-fg-color--dark:  #702e5a;
   }
+
+  [data-md-color-scheme="slate"] {
+    --md-primary-fg-color:        #002855;
+    --md-primary-fg-color--light: #BA0C2F;
+    --md-primary-fg-color--dark:  #702e5a;
+  }

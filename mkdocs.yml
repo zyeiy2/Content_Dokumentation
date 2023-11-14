@@ -11,9 +11,22 @@ theme:
     text: Arial
   features:
     - header.autohide 
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - navigation.top
   language: de
   palette:
-    scheme: oraylis
+    - media: "(prefers-color-scheme: light)"
+      scheme: oraylis
+      toggel: 
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggel:
+        icon: material/weather-sunny
+        name: Switch to light mode
   logo: stylesheets/favicon-76.png
 
 extra_css:  

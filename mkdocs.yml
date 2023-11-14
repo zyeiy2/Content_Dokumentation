@@ -29,5 +29,10 @@ theme:
         name: Switch to light mode
   logo: stylesheets/favicon-76.png
 
+plugins: 
+  - search
+  - glightbox
+
+
 extra_css:  
   - stylesheets/extra.css

@@ -20,7 +20,7 @@ theme:
     - search.share
   language: de
   palette:
-    - media: "(prefers-color-scheme)"
+    - media: "(prefers-color-scheme: light)"
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode

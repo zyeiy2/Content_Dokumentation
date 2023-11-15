@@ -21,19 +21,20 @@ theme:
   language: de
   palette:
     - media: "(prefers-color-scheme: light)"
+      scheme: oraylis
       toggle:
         icon: material/brightness-auto
-        name: Switch to light mode
+        name: Switch to Dark mode
     - media: "(prefers-color-scheme: light)"
       scheme: oraylis
       toggle: 
         icon: material/eye
-        name: Switch to dark mode
+        name: Switch to Light mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/eye-outline
-        name: Switch to light mode
+        name: Switch to Automatic mode
   logo: stylesheets/favicon-76.png
 
 plugins: 

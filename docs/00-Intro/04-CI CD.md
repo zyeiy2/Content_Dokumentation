@@ -45,8 +45,8 @@ Continuous Deployment ist ein integraler Bestandteil von DevOps-Praktiken, da es
 
 ## Literatur Empfehlung
 
-### 
-![Phoenix ](Phoenix.png)
+### The Phoenix Project
+![Phoenix](Phoenix.png)
 
 "The Phoenix Project" von Gene Kim ist ein Wirtschaftsroman, der sich auf die Prinzipien und Praktiken von DevOps konzentriert. 
 

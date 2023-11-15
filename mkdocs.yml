@@ -24,17 +24,17 @@ theme:
       scheme: oraylis
       toggle:
         icon: material/brightness-auto
-        name: Switch to Dark mode
+        name: Automatic Mode
     - media: "(prefers-color-scheme: light)"
       scheme: oraylis
       toggle: 
         icon: material/eye
-        name: Switch to Light mode
+        name: Light mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/eye-outline
-        name: Switch to Automatic mode
+        name: Dark mode
   logo: stylesheets/favicon-76.png
 
 plugins: 

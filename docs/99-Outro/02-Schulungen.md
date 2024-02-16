@@ -43,13 +43,13 @@ In der digitalen Transformation ist die Fähigkeit, Software schnell, sicher und
 **Für wen ist diese Schulung gedacht?**  
 Diese Schulung richtet sich an Entwickler, die ihre Fähigkeiten in der modernen Softwarebereitstellung erweitern möchten. Sie ist besonders wertvoll für Teams, die eine agile Entwicklungsphilosophie verfolgen und ihre Release-Zyklen beschleunigen möchten.
 
-**Schulungsinhalte im Überblick:**
-- **Einführung in Azure DevOps:** Verbindung von Menschen, Prozessen und Produkten zur Effizienzsteigerung.
-- **CI/CD mit Azure Pipelines:** Praktische Erfahrung im Aufbau von Continuous Integration und Continuous Deployment Pipelines.
-- **YAML für Azure Pipelines:** Erlernen des Schemas und der Referenzen für die Pipeline-Erstellung.
-- **Praktische Übungen:** Von "Hello World" bis hin zu fortgeschrittenen Themen wie Agents, Verzeichnisstrukturen, Tasks und Artefaktmanagement.
-- **Variablen und Secrets:** Sichere Handhabung von Konfigurationen und sensiblen Informationen innerhalb der Pipelines.
-- **Automatisierung und Templates:** Effizienzsteigerung durch Trigger und die Wiederverwendung von Pipeline-Komponenten.
+**Schulungsinhalte im Überblick:**  
+- **Einführung in Azure DevOps:** Verbindung von Menschen, Prozessen und Produkten zur Effizienzsteigerung.  
+- **CI/CD mit Azure Pipelines:** Praktische Erfahrung im Aufbau von Continuous Integration und Continuous Deployment Pipelines.  
+- **YAML für Azure Pipelines:** Erlernen des Schemas und der Referenzen für die Pipeline-Erstellung.  
+- **Praktische Übungen:** Von "Hello World" bis hin zu fortgeschrittenen Themen wie Agents, Verzeichnisstrukturen, Tasks und Artefaktmanagement.  
+- **Variablen und Secrets:** Sichere Handhabung von Konfigurationen und sensiblen Informationen innerhalb der Pipelines.  
+- **Automatisierung und Templates:** Effizienzsteigerung durch Trigger und die Wiederverwendung von Pipeline-Komponenten.  
 
 **Technische Voraussetzungen:**  
 Teilnehmer benötigen grundlegende Kenntnisse in Softwareentwicklung und Git, Zugang zu Azure DevOps mit einem eigenen Projekt, eine Basic-Lizenz sowie einen Azure Storage Account (optional von uns gestellt).

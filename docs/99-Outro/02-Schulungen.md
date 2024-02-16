@@ -54,11 +54,11 @@ Diese Schulung richtet sich an Entwickler, die ihre Fähigkeiten in der modernen
 **Technische Voraussetzungen:**  
 Teilnehmer benötigen grundlegende Kenntnisse in Softwareentwicklung und Git, Zugang zu Azure DevOps mit einem eigenen Projekt, eine Basic-Lizenz sowie einen Azure Storage Account (optional von uns gestellt).
 
-**Warum sollten Sie Ihre Teams zu dieser Schulung anmelden?**
-- **Wettbewerbsvorteil:** Beschleunigung der Release-Zyklen und Verbesserung der Softwarequalität.
-- **Fachkompetenz:** Vertiefung der Kenntnisse in Azure DevOps und Continuous Deployment.
-- **Praxisorientiert:** Durchführung anhand realer Projekte mit direkter Anwendung des Gelernten.
-- **Flexibilität:** Die Schulung wird remote durchgeführt und lässt sich somit flexibel in den Arbeitsalltag integrieren.
+**Warum sollten Sie Ihre Teams zu dieser Schulung anmelden?**  
+- **Wettbewerbsvorteil:** Beschleunigung der Release-Zyklen und Verbesserung der Softwarequalität.  
+- **Fachkompetenz:** Vertiefung der Kenntnisse in Azure DevOps und Continuous Deployment.  
+- **Praxisorientiert:** Durchführung anhand realer Projekte mit direkter Anwendung des Gelernten.  
+- **Flexibilität:** Die Schulung wird remote durchgeführt und lässt sich somit flexibel in den Arbeitsalltag integrieren.   
 
 **Investition in die Zukunft:**  
 Die Schulung "Continuous Deployment mit Azure DevOps" ist eine Investition in die Kompetenzen Ihres Teams und in die digitale Zukunft Ihres Unternehmens. Durch die Vermittlung von Best Practices und aktuellen Technologien werden Ihre Teams befähigt, Entwicklungsprozesse zu optimieren und Produkte schneller auf den Markt zu bringen. Letztendlich führt dies zu einer gesteigerten Kundenzufriedenheit und einer stärkeren Marktposition.

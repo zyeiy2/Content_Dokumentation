@@ -2,6 +2,7 @@
 
 ## Einleitung
 In der heutigen schnelllebigen Welt der Softwareentwicklung ist es unerlässlich, dass Teams in der Lage sind, Änderungen schnell und zuverlässig in die Produktion zu bringen. Die Schulung "Continuous Deployment mit Azure DevOps" bietet eine umfassende Einführung in die Methoden und Werkzeuge, die notwendig sind, um Continuous Delivery und Continuous Deployment effektiv zu realisieren. Diese Schulung ist speziell für Teams konzipiert, die ihre Fähigkeiten in der modernen Softwareentwicklung erweitern möchten und wird remote für Gruppen von 6-8 Teilnehmern angeboten.
+Mit einem Umfang von 8 Stunden ist die Schulung so konzipiert, dass Teilnehmer umfassendes Wissen erlangen und praktische Fähigkeiten entwickeln, ohne einen erheblichen Zeitraum aus ihrem Arbeitsalltag abtreten zu müssen.
 
 Die Schulung beginnt mit einem theoretischen Überblick über Azure Pipelines, einem Kernstück von Azure DevOps, das die Automatisierung des Softwarebereitstellungsprozesses ermöglicht. Die Teilnehmer lernen die Bedeutung der Verbindung von Menschen, Prozessen und Produkten kennen, um eine effiziente Continuous Integration (CI) und Continuous Deployment (CD) Pipeline zu schaffen. Der CI-Prozess konzentriert sich auf die Automatisierung des Builds, während CD die Bereitstellung dieses Builds in einer Umgebung abdeckt.
 
@@ -38,7 +39,7 @@ Diese technischen Voraussetzungen stellen sicher, dass alle Teilnehmer in der La
 ## Management Summary: Schulungsoffensive Continuous Deployment mit Azure DevOps
 
 **Zielsetzung:**  
-In der digitalen Transformation ist die Fähigkeit, Software schnell, sicher und effizient auszurollen, ein entscheidender Wettbewerbsvorteil. Continuous Deployment (CD) mit Azure DevOps bietet die Möglichkeit, diesen Prozess zu automatisieren und zu optimieren. Ziel dieser Schulung ist es, Entwicklungsteams die notwendigen Kompetenzen und das praktische Know-how zu vermitteln, um Continuous Deployment-Prozesse in Azure DevOps zu implementieren und zu managen.
+In der digitalen Transformation ist die Fähigkeit, Software schnell, sicher und effizient auszurollen, ein entscheidender Wettbewerbsvorteil. Continuous Deployment (CD) mit Azure DevOps bietet die Möglichkeit, diesen Prozess zu automatisieren und zu optimieren. Ziel dieser Schulung ist es, Entwicklungsteams die notwendigen Kompetenzen und das praktische Know-how zu vermitteln, um Continuous Deployment-Prozesse in Azure DevOps zu implementieren und zu managen. Mit einem Umfang von 8 Stunden ist die Schulung so konzipiert, dass Teilnehmer umfassendes Wissen erlangen und praktische Fähigkeiten entwickeln, ohne einen erheblichen Zeitraum aus ihrem Arbeitsalltag abtreten zu müssen.
 
 **Für wen ist diese Schulung gedacht?**  
 Diese Schulung richtet sich an Entwickler, die ihre Fähigkeiten in der modernen Softwarebereitstellung erweitern möchten. Sie ist besonders wertvoll für Teams, die eine agile Entwicklungsphilosophie verfolgen und ihre Release-Zyklen beschleunigen möchten.

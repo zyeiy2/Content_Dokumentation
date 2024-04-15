@@ -29,7 +29,11 @@ Stellen sicher, dass die folgende Voraussetzungen erfüllt sind:
 
 #### Azure Umgebung
 
+Erstelle ein [kostenloses Azure-Konto](https://azure.microsoft.com/de-de/free/) wenn keins vorhanden ist.
+
 #### Azure DevOps Instanz
+
+Erstelle eine [kostenlose Azure-DevOps Instanz](https://azure.microsoft.com/de-de/free/devops/) wenn keine vorhanden ist.
 
 ##### Zugriffstoken
 

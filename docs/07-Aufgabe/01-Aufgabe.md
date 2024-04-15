@@ -122,7 +122,7 @@ Variables
 Name | Value 
 --- | ---
 container | **`$web** 
-sasToken | Value of SAS Token
+sasToken | **$** + Value of SAS Token
 storageAccount | Value of Storage Account Name
 
 #### Resources

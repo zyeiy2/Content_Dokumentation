@@ -38,36 +38,36 @@ Stellen sicher, dass die folgende Voraussetzungen erfüllt sind:
 
 Um ein PAT zu erstellen:
 
-1. Wählen Sie in Azure DevOps die Benutzereinstellungen neben Ihrem Profilbild in der oberen rechten Ecke aus.
-2. Wählen Sie "Personal Access Tokens" aus.
-3. Wählen Sie auf der Seite "Persönliche Zugriffstoken" "Neues Token" aus und geben Sie die folgenden Werte ein:
+1. Wähle in Azure DevOps die Benutzereinstellungen neben Ihrem Profilbild in der oberen rechten Ecke aus.
+2. Wähle "Personal Access Tokens" aus.
+3. Wähle auf der Seite "Persönliche Zugriffstoken" "Neues Token" aus und gebe die folgenden Werte ein:
 
 | Einstellung| Wert|
 | -- | -- |
-| Name| Geben Sie einen Namen für Ihr Token ein. |
-| Organisation| Wählen Sie die Organisation aus. |
-| Bereiche| Wählen Sie "Benutzerdefiniert" aus. |
-| Alle Bereiche anzeigen | Wählen Sie " Alle Bereiche anzeigen" aus. |
-| Agentpools (Lesen und Verwalten) | Wählen Sie Agentpools (Lesen und Verwalten) aus. |
+| Name| Gib einen Namen für den Token an. |
+| Organisation| Wähle die Organisation aus. |
+| Bereiche| Wähle **Benutzerdefiniert** aus. |
+| Alle Bereiche anzeigen | Wähle  **Alle Bereiche anzeigen** aus. |
+| Agentpools (Lesen und Verwalten) | Wähle Agentpools (Lesen und Verwalten) aus. |
 
-4. Klicken Sie auf Erstellen und kopieren Sie den Tokenwert an einen sicheren Speicherort.
+4. Klicke auf Erstellen und kopiereden Tokenwert an einen sicheren Speicherort.
 
 ##### Agentpools
 
-1. Erweitern in Ihrem Azure DevOps-Projekt die linke Navigationsleiste und wählen Sie "Projekteinstellungen" aus.
-2. Wählen unter dem Abschnitt "Pipelines" die Option "Agentpools" aus.
+1. Erweiter im Azure DevOps-Projekt die linke Navigationsleiste und wähle "Projekteinstellungen" aus.
+2. Wähle unter dem Abschnitt "Pipelines" die Option "Agentpools" aus.
 3. Wähle "Pool hinzufügen" aus und gebe folgende Werte ein:
 
 | Einstellung| Wert|
 | -- | -- |
-| Pool, der verknüpft werden soll| Wählen Sie Neu aus.|
-| Pooltyp| Wählen Sie selbst gehostet aus. |
-| Name| Geben Sie SelfHostedContainerAgents ein. |
+| Pool, der verknüpft werden soll| Wähle **Neu** aus.|
+| Pooltyp| Wähle **selbst gehoste**t aus. |
+| Name| Gebe  **SelfHostedContainerAgents** ein. |
 | Gewähren der Zugriffsberechtigung für alle Pipelines | Aktiviere dieses Kontrollkästchen. |
 
 #### Variablen im BuildEnvironment.yml
 
-Ersetzen Sie die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEnvironment.yml`-Datei.
+Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEnvironment.yml`-Datei.
 
 | Wert | Erklärung | Beispiel | 
 | --- | --- | --- |
@@ -79,8 +79,8 @@ Ersetzen Sie die `todo_` Werte mit den entsprechenden Informationen in Ihrer `Bu
 | todo_ServiceConnection | Die angelegte Service-Connection in Azure DevOps. **Kommt mehrfach vor** | ServiceConnection_Name |
 
 #### Neues Azure DevOps Repo erstellen
-Erstellen Sie ein neues Azure DevOps Repo.
-Klonen Sie das Repo lokal und legen Sie folgende Struktur an:
+Erstelle ein neues Azure DevOps Repo.
+Klone das Repo lokal und lege folgende Struktur an:
 ```
 Repo
 │
@@ -91,7 +91,7 @@ Repo
     └───azure-pipeline-agent
             start.sh
 ```
-Fügen Sie die Inhalte wie beschrieben in die Dateien ein.
+Füge die Inhalte wie beschrieben in die Dateien ein.
 
 Die Files sollten folgende Inhalte haben:
 
@@ -539,7 +539,7 @@ steps:
 ```
 
 #### Pipelines erstellen
-Erstellen Sie zwei Pipelines in Azure DevOps:
+Erstelle zwei Pipelines in Azure DevOps:
 
 1. **BuildEnvironment.yml** für die Pipeline SetupBuildAgent im Ordner `Orga`. 
   Füge zwei Variablen hinzu:
@@ -549,9 +549,9 @@ Erstellen Sie zwei Pipelines in Azure DevOps:
 
 #### Ausführen der Pipelines
 
-1. Führen Sie die **SetupBuildAgent** Pipeline aus und beobachten Sie, ob alle Ressourcen in der Azure Resource Group angelegt werden.
+1. Führe die **SetupBuildAgent** Pipeline aus und beobachte, ob alle Ressourcen in der Azure Resource Group angelegt werden.
 1. Im Anschluss an die Ausführung der Pipeline **SetupBuildAgent** den Wert **imageBuild** auf `true` stellen.
-1. Führen Sie die TestBuildAgent Pipeline aus und überprüfen Sie, ob ein selbst gehosteter Agent verwendet wird.
+1. Führe die TestBuildAgent Pipeline aus und überprüfe, ob ein selbst gehosteter Agent verwendet wird.
 
 
 ## Links

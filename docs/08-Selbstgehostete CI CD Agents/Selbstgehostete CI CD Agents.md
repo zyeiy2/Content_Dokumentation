@@ -97,7 +97,6 @@ Hier sind die überarbeiteten Tabelleninformationen, wobei die 'todo_' Platzhalt
 | isImageBuild | Pipeline Variable | Gibt an, ob es sich um ein Initial-Setup (`false`) oder um den Bau einer neuen Image-Version (`true`) handelt. | An der Pipeline zu definieren |
 | ServiceConnection | Zu definieren | Die eingerichtete Service-Connection in Azure DevOps. Kommt mehrfach vor. | ServiceConnection_Name |
 
-
 #### Neues Azure DevOps Repo erstellen
 Erstelle ein neues Azure DevOps Repo.
 Klone das Repo lokal und lege folgende Struktur an:
@@ -571,6 +570,43 @@ Erstelle zwei Pipelines in Azure DevOps:
 1. Führe die **SetupBuildAgent** Pipeline aus und beobachte, ob alle Ressourcen in der Azure Resource Group angelegt werden.
 1. Im Anschluss an die Ausführung der Pipeline **SetupBuildAgent** den Wert **imageBuild** auf `true` stellen.
 1. Führe die `TestBuildAgent` Pipeline aus und überprüfe, ob ein selbst gehosteter Agent verwendet wird.
+
+#### Ressourcen Provisionierung
+![Ablauf](Ablauf.drawio.png)
+
+#### Pipeline ausführung
+
+1. **Ausführung der Azure Pipeline:**
+   - Die Pipeline wird in Azure DevOps gestartet.
+![Run-1.png](Run-1.png)
+![Run-2.png](Run-2.png)
+
+1. **Start des Container App Jobs:**
+   - Der Container App Jobs in Azure gestartet.
+![Run-3.png](Run-3.png)
+
+1. **Registrierung des Agents bei Azure DevOps:**
+   - Sobald der Container hochgefahren ist, wird der Agent bei Azure DevOps registriert. Diese Registrierung ermöglicht es dem Agenten, Aufgaben und Befehle von Azure DevOps zu empfangen und auszuführen. 
+![Run-4.png](Run-4.png)
+
+1. **Ausführung der Pipeline auf der Container App:**
+   - Nach der Registrierung des Agents beginnt die eigentliche Ausführung der Pipeline im Container. 
+![Run-5.png](Run-5.png)
+
+1. **Deregistrierung des Agents nach der Ausführung:**
+   - Nachdem alle Aufgaben ausgeführt wurden, wird der Agent bei Azure DevOps deregistriert. 
+![Run-7.png](Run-7.png)
+![Run-6.png](Run-6.png)
+
+
+1. **Aufräumen und Abschluss:**
+   - Zum Abschluss werden alle Ressourcen, die für den Job genutzt wurden gelöscht. 
+![Run-8.png](Run-8.png)
+
+
+#### Azure Ressourcen und Image in der Container Registry
+![Azure Ressources](Azure%20Ressources.png)
+![Container Registry Images](Container%20Registry%20Images.png)
 
 ## Links
 - [Tutorial: Bereitstellen von selbstgehosteten CI/CD-Runnern und -Agents mit Azure Container Apps-Aufträgen](https://learn.microsoft.com/de-de/azure/container-apps/tutorial-ci-cd-runners-jobs?tabs=bash&pivots=container-apps-jobs-self-hosted-ci-cd-azure-pipelines)

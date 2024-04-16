@@ -578,30 +578,30 @@ Erstelle zwei Pipelines in Azure DevOps:
 
 1. **Ausführung der Azure Pipeline:**  
    - Die Pipeline wird in Azure DevOps gestartet.
-![Run-1.png](Run-1.png)
-![Run-2.png](Run-2.png)
+    ![Run-1.png](Run-1.png)
+    ![Run-2.png](Run-2.png)
 
 1. **Start des Container App Jobs:**  
    - Der Container App Jobs in Azure gestartet.
-![Run-3.png](Run-3.png)
+    ![Run-3.png](Run-3.png)
 
 1. **Registrierung des Agents bei Azure DevOps:**  
    - Sobald der Container hochgefahren ist, wird der Agent bei Azure DevOps registriert. Diese Registrierung ermöglicht es dem Agenten, Aufgaben und Befehle von Azure DevOps zu empfangen und auszuführen. 
-![Run-4.png](Run-4.png)
+    ![Run-4.png](Run-4.png)
 
 1. **Ausführung der Pipeline auf der Container App:**  
    - Nach der Registrierung des Agents beginnt die eigentliche Ausführung der Pipeline im Container. 
-![Run-5.png](Run-5.png)
+    ![Run-5.png](Run-5.png)
 
 1. **Deregistrierung des Agents nach der Ausführung:**  
    - Nachdem alle Aufgaben ausgeführt wurden, wird der Agent bei Azure DevOps deregistriert. 
-![Run-7.png](Run-7.png)
-![Run-6.png](Run-6.png)
+    ![Run-7.png](Run-7.png)
+    ![Run-6.png](Run-6.png)
 
 
 1. **Aufräumen und Abschluss:**  
    - Zum Abschluss werden alle Ressourcen, die für den Job genutzt wurden gelöscht. 
-![Run-8.png](Run-8.png)
+    ![Run-8.png](Run-8.png)
 
 
 #### Azure Ressourcen und Image in der Container Registry

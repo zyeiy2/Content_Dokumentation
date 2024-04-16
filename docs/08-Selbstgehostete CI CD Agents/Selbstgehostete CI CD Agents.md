@@ -47,7 +47,7 @@ Um ein PAT zu erstellen:
 3. Wähle auf der Seite "Persönliche Zugriffstoken" "Neues Token" aus und gebe die folgenden Werte ein:
 
 | Einstellung| Wert|
-| -- | -- |
+| --- | --- |
 | Name| Gib einen Namen für den Token an. |
 | Organisation| Wähle die Organisation aus. |
 | Bereiche| Wähle **Benutzerdefiniert** aus. |
@@ -65,22 +65,38 @@ Um ein PAT zu erstellen:
 | Einstellung| Wert|
 | -- | -- |
 | Pool, der verknüpft werden soll| Wähle **Neu** aus.|
-| Pooltyp| Wähle **selbst gehoste**t aus. |
+| Pooltyp| Wähle **selbst gehostet** aus. |
 | Name| Gebe  **SelfHostedContainerAgents** ein. |
 | Gewähren der Zugriffsberechtigung für alle Pipelines | Aktiviere dieses Kontrollkästchen. |
+
+##### ServiceConnection
+1. Erstellen einer App-Registration und anlegen eines Client Secrets. [Registrierung einer App Registration](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app)  
+1. Vergeben von Contributor Rechten auf der Ressourcengruppe oder Subscription.  
+1. App Registration als Service Connection in Azure DevOps anlegen. [Service Connection Anlegen](https://learn.microsoft.com/de-de/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)  
 
 #### Variablen im BuildEnvironment.yml
 
 Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEnvironment.yml`-Datei.
 
-| Wert | Erklärung | Beispiel | 
-| --- | --- | --- |
-| todo_LOCATION | Die Azure Region, wo die Containerlösung laufen soll. | westeurope |
-| todo_RESOURCEGROUP | Die Ressourcengruppe, wohin Deployed werden soll. | shared |
-| todo_CONTAINERREGISTRYNAME | Die Container Registry, die aufgesetzt werden soll. Ressourcenname muss eindeutig sein. | cragentwe001 |
-| todo_ENVIRONMENT | Das Environment, das aufgesetzt werden soll. Ressourcenname muss eindeutig sein. | caeagentwe001 |
-| todo_ORGANIZATIONURL | Die Azure DevOps Organisation, in der die Agents angelegt werden sollen. | https://dev.azure.com/bstehmans2711 |
-| todo_ServiceConnection | Die angelegte Service-Connection in Azure DevOps. **Kommt mehrfach vor** | ServiceConnection_Name |
+Hier sind die überarbeiteten Tabelleninformationen, wobei die 'todo_' Platzhalter, sofern möglich, entfernt und die Formulierungen vereinheitlicht wurden. Ich habe auch einige grammatische Anpassungen vorgenommen und versucht, die Einheitlichkeit in der Darstellung zu verbessern:
+
+| Name | Wert | Erklärung | Beispiel | 
+| --- | --- | --- | --- |
+| LOCATION | Zu definieren | Die Azure Region, in der die Containerlösung betrieben werden soll. | westeurope |
+| RESOURCEGROUP | Zu definieren | Die Ressourcengruppe, in der die Lösung deployt wird. | shared |
+| CONTAINERREGISTRYNAME | Zu definieren | Der eindeutige Name der Container Registry, die eingerichtet werden soll. | cragentwe001 |
+| ENVIRONMENT | Zu definieren | Das zu erstellende Environment. Name muss eindeutig sein. | caeagentwe001 |
+| JOBNAME | azure-pipelines-agent-job-we001 | Der Anzeigename des Container-Jobs. | azure-pipelines-agent-job-we001 |
+| PLACEHOLDERJOBNAME | placeholder-agent-job-we001 | Der Anzeigename des Platzhalter-Jobs. | placeholder-agent-job-we001 |
+| CONTAINERIMAGENAME | azure-pipelines-agent:1.0.$(Build.BuildId) | Der Name des in der Container Registry gebauten Images. | azure-pipelines-agent:1.0.$(Build.BuildId) |
+| USESUBNET | false | Steuert die Netzwerkeinstellung; `false` für öffentlich, `true` für netzwerkisoliert. | false |
+| INFRASTRUCTURESUBNETID | Zu definieren | Die Azure Netzwerk-ID, in die die Containerlösung integriert wird. | /subscriptions/<tbd_subscription_id>/resourceGroups/<tbd_resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<tbd_virtualNetworkName>/subnets/<tbd_subnetName> |
+| INTERNALROUTING | true | Gibt an, dass die Umgebung nur über einen internen Load Balancer verfügt und keine öffentliche statische IP-Ressource besitzt. Muss `INFRASTRUCTURESUBNETID` angeben, wenn aktiviert. | true |
+| ORGANIZATIONURL | Zu definieren | Die URL der Azure DevOps Organisation, in der die Agents eingerichtet werden. | https://dev.azure.com/<Organisation> |
+| AZPPOOL | SelfHostedContainerAgents | Der Name des Agentpools. | SelfHostedContainerAgents |
+| isImageBuild | Pipeline Variable | Gibt an, ob es sich um ein Initial-Setup (`false`) oder um den Bau einer neuen Image-Version (`true`) handelt. | An der Pipeline zu definieren |
+| ServiceConnection | Zu definieren | Die eingerichtete Service-Connection in Azure DevOps. Kommt mehrfach vor. | ServiceConnection_Name |
+
 
 #### Neues Azure DevOps Repo erstellen
 Erstelle ein neues Azure DevOps Repo.
@@ -545,18 +561,16 @@ steps:
 #### Pipelines erstellen
 Erstelle zwei Pipelines in Azure DevOps:
 
-1. **BuildEnvironment.yml** für die Pipeline SetupBuildAgent im Ordner `Orga`. 
+1. **BuildEnvironment.yml** für die Pipeline `SetupBuildAgent` im Ordner `Orga`. 
   Füge zwei Variablen hinzu:
     - **imageBuild** mit dem Wert **false**. Wähle die Option (Die Benutzer können diesen Wert bei der Ausführung dieser Pipeline überschreiben.)
     - **AZP_TOKEN** mit dem Wert aus dem Abschnitt **Zugriffstoken** . Wähle die Option (Die Benutzer können diesen Wert bei der Ausführung dieser Pipeline überschreiben.)
-2. **TestAgent.yml** für die Pipeline TestBuildAgent im Ordner `Orga`.
+2. **TestAgent.yml** für die Pipeline `TestBuildAgent` im Ordner `Orga`.
 
 #### Ausführen der Pipelines
-
 1. Führe die **SetupBuildAgent** Pipeline aus und beobachte, ob alle Ressourcen in der Azure Resource Group angelegt werden.
 1. Im Anschluss an die Ausführung der Pipeline **SetupBuildAgent** den Wert **imageBuild** auf `true` stellen.
-1. Führe die TestBuildAgent Pipeline aus und überprüfe, ob ein selbst gehosteter Agent verwendet wird.
-
+1. Führe die `TestBuildAgent` Pipeline aus und überprüfe, ob ein selbst gehosteter Agent verwendet wird.
 
 ## Links
 - [Tutorial: Bereitstellen von selbstgehosteten CI/CD-Runnern und -Agents mit Azure Container Apps-Aufträgen](https://learn.microsoft.com/de-de/azure/container-apps/tutorial-ci-cd-runners-jobs?tabs=bash&pivots=container-apps-jobs-self-hosted-ci-cd-azure-pipelines)

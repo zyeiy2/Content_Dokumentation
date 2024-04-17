@@ -17,6 +17,43 @@ In diesem Leitfaden werde ich dir zeigen, wie du diese Lösung effektiv implemen
 
 Diese Anleitung führt durch die Einrichtung in einer Azure-Umgebung, die Erstellung von Agentpools in Azure DevOps, die Generierung von Azure DevOps-Zugriffstokens und die Konfiguration der notwendigen Variablen in einer `BuildEnvironment.yml`-Datei.
 
+
+#### Ressourcen Provisionierung
+![Ablauf](Ablauf.drawio.png)
+
+#### Pipeline ausführung
+
+1. **Ausführung der Azure Pipeline**  
+    Die Pipeline wird in Azure DevOps gestartet.
+    ![Run-1.png](Run-1.png)
+    ![Run-2.png](Run-2.png)
+
+1. **Start des Container App Jobs**  
+    Der Container App Jobs in Azure gestartet.
+    ![Run-3.png](Run-3.png)
+
+1. **Registrierung des Agents bei Azure DevOps**  
+    Sobald der Container hochgefahren ist, wird der Agent bei Azure DevOps registriert. Diese Registrierung ermöglicht es dem Agenten, Aufgaben und Befehle von Azure DevOps zu empfangen und auszuführen. 
+    ![Run-4.png](Run-4.png)
+
+1. **Ausführung der Pipeline auf der Container App**  
+    Nach der Registrierung des Agents beginnt die eigentliche Ausführung der Pipeline im Container. 
+    ![Run-5.png](Run-5.png)
+
+1. **Deregistrierung des Agents nach der Ausführung**  
+    Nachdem alle Aufgaben ausgeführt wurden, wird der Agent bei Azure DevOps deregistriert. 
+    ![Run-7.png](Run-7.png)
+    ![Run-6.png](Run-6.png)
+
+1. **Aufräumen und Abschluss**  
+    Zum Abschluss werden alle Ressourcen, die für den Job genutzt wurden gelöscht. 
+    ![Run-8.png](Run-8.png)
+
+
+#### Azure Ressourcen und Image in der Container Registry
+![Azure Ressources](Azure%20Ressources.png)
+![Container Registry Images](Container%20Registry%20Images.png)
+
 ### Voraussetzungen
 
 Stellen sicher, dass die folgende Voraussetzungen erfüllt sind:
@@ -78,8 +115,6 @@ Um ein PAT zu erstellen:
 
 Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEnvironment.yml`-Datei.
 
-Hier sind die überarbeiteten Tabelleninformationen, wobei die 'todo_' Platzhalter, sofern möglich, entfernt und die Formulierungen vereinheitlicht wurden. Ich habe auch einige grammatische Anpassungen vorgenommen und versucht, die Einheitlichkeit in der Darstellung zu verbessern:
-
 | Name | Wert | Erklärung | Beispiel | 
 | --- | --- | --- | --- |
 | LOCATION | Zu definieren | Die Azure Region, in der die Containerlösung betrieben werden soll. | westeurope |
@@ -102,7 +137,6 @@ Erstelle ein neues Azure DevOps Repo.
 Klone das Repo lokal und lege folgende Struktur an:
 ```
 Repo
-│
 └───agent
     │   Dockerfile
     │   BuildEnvironment.yml
@@ -374,7 +408,7 @@ variables:
 - name: USESUBNET
   value: false
 - name: INFRASTRUCTURESUBNETID
-  value: tbd  ##/subscriptions/<tbd_subscription_id>/resourceGroups/<tbd_resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<tbd_virtualNetworkName>/subnets/<tbd_subnetName>
+  value: todo_INFRASTRUCTURESUBNETID  ##/subscriptions/<tbd_subscription_id>/resourceGroups/<tbd_resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<tbd_virtualNetworkName>/subnets/<tbd_subnetName>
 - name: INTERNALROUTING
   value: true ## true or false
 ## DevOps  
@@ -571,41 +605,6 @@ Erstelle zwei Pipelines in Azure DevOps:
 1. Im Anschluss an die Ausführung der Pipeline **SetupBuildAgent** den Wert **imageBuild** auf `true` stellen.
 1. Führe die `TestBuildAgent` Pipeline aus und überprüfe, ob ein selbst gehosteter Agent verwendet wird.
 
-#### Ressourcen Provisionierung
-![Ablauf](Ablauf.drawio.png)
-
-#### Pipeline ausführung
-
-1. **Ausführung der Azure Pipeline**  
-    Die Pipeline wird in Azure DevOps gestartet.
-    ![Run-1.png](Run-1.png)
-    ![Run-2.png](Run-2.png)
-
-1. **Start des Container App Jobs**  
-    Der Container App Jobs in Azure gestartet.
-    ![Run-3.png](Run-3.png)
-
-1. **Registrierung des Agents bei Azure DevOps**  
-    Sobald der Container hochgefahren ist, wird der Agent bei Azure DevOps registriert. Diese Registrierung ermöglicht es dem Agenten, Aufgaben und Befehle von Azure DevOps zu empfangen und auszuführen. 
-    ![Run-4.png](Run-4.png)
-
-1. **Ausführung der Pipeline auf der Container App**  
-    Nach der Registrierung des Agents beginnt die eigentliche Ausführung der Pipeline im Container. 
-    ![Run-5.png](Run-5.png)
-
-1. **Deregistrierung des Agents nach der Ausführung**  
-    Nachdem alle Aufgaben ausgeführt wurden, wird der Agent bei Azure DevOps deregistriert. 
-    ![Run-7.png](Run-7.png)
-    ![Run-6.png](Run-6.png)
-
-1. **Aufräumen und Abschluss**  
-    Zum Abschluss werden alle Ressourcen, die für den Job genutzt wurden gelöscht. 
-    ![Run-8.png](Run-8.png)
-
-
-#### Azure Ressourcen und Image in der Container Registry
-![Azure Ressources](Azure%20Ressources.png)
-![Container Registry Images](Container%20Registry%20Images.png)
 
 ## Links
 - [Tutorial: Bereitstellen von selbstgehosteten CI/CD-Runnern und -Agents mit Azure Container Apps-Aufträgen](https://learn.microsoft.com/de-de/azure/container-apps/tutorial-ci-cd-runners-jobs?tabs=bash&pivots=container-apps-jobs-self-hosted-ci-cd-azure-pipelines)

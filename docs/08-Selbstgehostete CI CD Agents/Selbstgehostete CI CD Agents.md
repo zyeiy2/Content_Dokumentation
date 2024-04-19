@@ -17,7 +17,6 @@ In diesem Leitfaden werde ich dir zeigen, wie du diese Lösung effektiv implemen
 
 Diese Anleitung führt durch die Einrichtung in einer Azure-Umgebung, die Erstellung von Agentpools in Azure DevOps, die Generierung von Azure DevOps-Zugriffstokens und die Konfiguration der notwendigen Variablen in einer `BuildEnvironment.yml`-Datei.
 
-
 #### Ressourcen Provisionierung
 ![Ablauf](Ablauf.drawio.png)
 
@@ -59,6 +58,7 @@ Diese Anleitung führt durch die Einrichtung in einer Azure-Umgebung, die Erstel
 Stellen sicher, dass die folgende Voraussetzungen erfüllt sind:
 
 - Azure Umgebung
+- Netzwerk
 - Azure DevOps Instanz
 - Agentpools
 - Azure DevOps-Zugriffstokens
@@ -68,8 +68,18 @@ Stellen sicher, dass die folgende Voraussetzungen erfüllt sind:
 
 Erstelle ein [kostenloses Azure-Konto](https://azure.microsoft.com/de-de/free/) wenn keins vorhanden ist.
 
-#### Azure DevOps Instanz
+##### Azure Resource Provider
 
+In der Subscription, wo die Lösung deployt wird, müssen die folgenden Ressourcen-Provider registriert sein:
+- Microsoft.App
+- Microsoft.OperationalInsights
+
+Hier,[Azure portal | Register resource provider](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1) findest du eine Anleitung, wie die Azure Resource Provider registriert werden können.
+
+##### Netzwerk 
+Das Präfix der Netzwerk-Subnetzadresse erfordert einen minimalen CIDR-Bereich /23 für die Verwendung mit Container-Apps. 
+
+#### Azure DevOps Instanz
 Erstelle eine [kostenlose Azure-DevOps Instanz](https://azure.microsoft.com/de-de/free/devops/) wenn keine vorhanden ist.
 
 ##### Zugriffstoken
@@ -125,7 +135,7 @@ Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEn
 | PLACEHOLDERJOBNAME | placeholder-agent-job-we001 | Der Anzeigename des Platzhalter-Jobs. | placeholder-agent-job-we001 |
 | CONTAINERIMAGENAME | azure-pipelines-agent:1.0.$(Build.BuildId) | Der Name des in der Container Registry gebauten Images. | azure-pipelines-agent:1.0.$(Build.BuildId) |
 | USESUBNET | false | Steuert die Netzwerkeinstellung; `false` für öffentlich, `true` für netzwerkisoliert. | false |
-| INFRASTRUCTURESUBNETID | Zu definieren | Die Azure Netzwerk-ID, in die die Containerlösung integriert wird. | /subscriptions/<tbd_subscription_id>/resourceGroups/<tbd_resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<tbd_virtualNetworkName>/subnets/<tbd_subnetName> |
+| INFRASTRUCTURESUBNETID | Zu definieren | Die Azure Netzwerk-ID, in die die Containerlösung integriert wird. [Networking in Azure Container Apps environment](https://learn.microsoft.com/en-us/azure/container-apps/networking)| /subscriptions/<tbd_subscription_id>/resourceGroups/<tbd_resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<tbd_virtualNetworkName>/subnets/<tbd_subnetName> |
 | INTERNALROUTING | true | Gibt an, dass die Umgebung nur über einen internen Load Balancer verfügt und keine öffentliche statische IP-Ressource besitzt. Muss `INFRASTRUCTURESUBNETID` angeben, wenn aktiviert. | true |
 | ORGANIZATIONURL | Zu definieren | Die URL der Azure DevOps Organisation, in der die Agents eingerichtet werden. | https://dev.azure.com/<Organisation> |
 | AZPPOOL | SelfHostedContainerAgents | Der Name des Agentpools. | SelfHostedContainerAgents |

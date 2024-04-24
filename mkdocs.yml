@@ -43,3 +43,39 @@ plugins:
 
 extra_css:  
   - stylesheets/extra.css
+
+nav:
+  - Home: "Index.md"
+  - Into: 
+    - Start: "Intro/Start.md"
+    - Agenda: "Intro/Agenda.md"
+    - Azure DevOps: "Intro/Azure DevOps.md"
+    - CI CD: "Intro/CI CD.md"
+    - ORAYLIS: "Intro/ORAYLIS.md"
+  - YAML:
+    - YAML Schema: "YAML/YAML Schema.md"
+    - YAML Schemareferenz: "YAML/YAML Schemareferenz.md"
+  - Hello World: 
+    - Eigenes Projekt erstellen: "Hello World/Eigenes Projekt erstellen.md"
+    - Windows Agents: "Hello World/Windows Agents.md"
+    - Verzeichnisse: "Hello World/Verzeichnisse.md"
+    - Tasks: "Hello World/Tasks.md"
+    - Veröffentlichen von Artefakten: "Hello World/Veröffentlichen von Artefakten.md"
+  - Variablen und Secrets:
+    - Variablen und Secrets: "Variablen und Secrets/Variablen und Secrets.md"
+    - Approvals: "Variablen und Secrets/Approvals.md"
+  - Trigger: 
+    - Trigger: "Trigger/Trigger.md"
+  - Konsumieren von Artefakten:
+    - Konsumieren von Pipeline Artefakten: "Konsumieren von Artefakten/Konsumieren von Pipeline Artefakten.md"
+  - Templates:
+    - Templates: "Templates/Templates.md"
+  - Aufgabe: 
+    - Aufgabe: "Aufgabe/Aufgabe.md"
+  - Selbstgehostete CI CD Agents:
+    - Selbstgehostete CI CD Agents: "Selbstgehostete CI CD Agents/Selbstgehostete CI CD Agents.md"
+  - Outro: 
+    - Outro: "Outro/Outro.md"
+    - Schulungen: "Outro/Schulungen.md"
+    - Links: 
+      - Lösung: "Outro/Links/Lösung.md"

@@ -59,7 +59,7 @@ nav:
     - YAML Schemareferenz: "YAML/YAML Schemareferenz.md"
   - Hello World: 
     - Eigenes Projekt erstellen: "Hello World/Eigenes Projekt erstellen.md"
-    - Windows Agents: "Hello World/Windows Agents.md"
+    - Agents: "Hello World/Agents.md"
     - Verzeichnisse: "Hello World/Verzeichnisse.md"
     - Tasks: "Hello World/Tasks.md"
     - Veröffentlichen von Artefakten: "Hello World/Veröffentlichen von Artefakten.md"

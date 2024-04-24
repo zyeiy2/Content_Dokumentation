@@ -18,6 +18,9 @@ theme:
     - navigation.footer
     - toc.integrate 
     - search.share
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
   language: de
   palette:
     - media: "(prefers-color-scheme: light)"

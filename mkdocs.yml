@@ -48,7 +48,6 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
-  - Home: "Index.md"
   - Into: 
     - Start: "Intro/Start.md"
     - Agenda: "Intro/Agenda.md"

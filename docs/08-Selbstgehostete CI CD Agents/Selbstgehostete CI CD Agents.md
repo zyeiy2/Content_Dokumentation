@@ -53,6 +53,15 @@ Diese Anleitung führt durch die Einrichtung in einer Azure-Umgebung, die Erstel
 ![Azure Ressources](Azure%20Ressources.png)
 ![Container Registry Images](Container%20Registry%20Images.png)
 
+### Azure Kosten
+|Service category|Service type|Region|Description|Estimated monthly cost in € |
+| ### | ### | ### | ### | ### |
+| Containers | Azure Container Registry | West Europe | Basic Tier, 1 registry x 30 days, 5 GB Extra Storage, Container Build - 4 CPUs x 600 Seconds - Internet Egress transfer type, 5 GB outbound data transfer from West Europe routed via Microsoft Global Network | 5.08€ |
+| Containers | Azure Container Apps | West Europe | Consumption Plan Type, 0.0006 million requests per month, Pay as you go, 1 concurrent request per container app, 600000 milliseconds execution time per request, 4 vCPUs, 8 GiB memory, Pay as you go | 48.87€ |
+
+> Hinweis: Bei dieser Rechnung wird davon ausgegangen das es 100 Stunden an Release Aktivitäten kommt in denen der Self Hosted- Agent gebraucht wird. 
+Das sind pro Tag 3 Stunden, 20 Minuten Agent Runtime pro Tag. Dies ist ein ausreichender Puffer.
+
 ### Voraussetzungen
 
 Stellen sicher, dass die folgende Voraussetzungen erfüllt sind:

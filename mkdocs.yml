@@ -75,8 +75,7 @@ nav:
   - Aufgabe: 
     - Aufgabe: "Aufgabe/Aufgabe.md"
   - Module: 
-    - Selbstgehostete CI CD Agents:
-      - Selbstgehostete CI CD Agents: "Selbstgehostete CI CD Agents/Selbstgehostete CI CD Agents.md"
+    - Selbstgehostete CI CD Agents: "Selbstgehostete CI CD Agents/Selbstgehostete CI CD Agents.md"
   - Outro: 
     - Outro: "Outro/Outro.md"
     - Schulungen: "Outro/Schulungen.md"

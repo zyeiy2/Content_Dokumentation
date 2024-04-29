@@ -125,10 +125,20 @@ Um ein PAT zu erstellen:
 | Name| Gebe  **SelfHostedContainerAgents** ein. |
 | Gewähren der Zugriffsberechtigung für alle Pipelines | Aktiviere dieses Kontrollkästchen. |
 
-##### ServiceConnection
-1. Erstellen einer App-Registration und anlegen eines Client Secrets. [Registrierung einer App Registration](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app)  
-1. Vergeben von Contributor Rechten auf der Ressourcengruppe oder Subscription.  
-1. App Registration als Service Connection in Azure DevOps anlegen. [Service Connection Anlegen](https://learn.microsoft.com/de-de/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)  
+##### Service Connection 
+
+###### App Registration
+1. Erstellen einer [App-Registration](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app) und anlegen eines [Client Secrets](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app#add-a-client-secret). 
+1. Vergeben von Contributor Rechten auf der Ressourcengruppe oder Subscription. 
+1. Analge einer mit Service Connection `Client Secret` oder `Federated Credentials`.
+
+###### Service Connection - Client Secret
+
+1. App Registration als Service Connection in Azure DevOps anlegen. [Create an Azure Resource Manager service connection that uses an existing service principal](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-azure-resource-manager-service-connection-that-uses-an-existing-service-principal)  
+
+###### Service Connection - Federated Credentials
+
+1. App Registration als Service Connection in Azure DevOps anlegen. [Create an Azure Resource Manager service connection that uses workload identity federation](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-azure-resource-manager-service-connection-that-uses-workload-identity-federation)  
 
 #### Variablen im BuildEnvironment.yml
 

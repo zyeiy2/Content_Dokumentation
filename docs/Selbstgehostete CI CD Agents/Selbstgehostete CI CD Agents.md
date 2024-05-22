@@ -167,9 +167,10 @@ Klone das Repo lokal und lege folgende Struktur an:
 ```
 Repo
 └───agent
-    │   Dockerfile
     │   BuildEnvironment.yml
     │   TestAgent.yml
+└───docker
+    │   Dockerfile
     └───azure-pipeline-agent
             start.sh
 ```

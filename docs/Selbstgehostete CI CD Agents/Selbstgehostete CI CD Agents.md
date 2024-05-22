@@ -79,11 +79,11 @@ Erstelle ein [kostenloses Azure-Konto](https://azure.microsoft.com/de-de/free/) 
 
 ##### Azure Resource Provider
 
-In der Subscription, wo die Lösung deployt wird, müssen die folgenden Ressourcen-Provider registriert sein:
-- Microsoft.App
-- Microsoft.OperationalInsights
+In der Subscription, wo die Lösung deployt wird, müssen die folgenden Ressourcen-Provider registriert sein:  
+- Microsoft.App  
+- Microsoft.OperationalInsights  
 
-Hier,[Azure portal | Register resource provider](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1) findest du eine Anleitung, wie die Azure Resource Provider registriert werden können.
+Im ,[Azure portal | Register resource provider](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1) findest du eine Anleitung, wie die Azure Resource Provider registriert werden können.
 
 ##### Netzwerk 
 Das Präfix der Netzwerk-Subnetzadresse erfordert einen minimalen CIDR-Bereich /23 für die Verwendung mit Container-Apps. 
@@ -98,9 +98,9 @@ Erstelle eine [kostenlose Azure-DevOps Instanz](https://azure.microsoft.com/de-d
 
 Um ein PAT zu erstellen:
 
-1. Wähle in Azure DevOps die Benutzereinstellungen neben Ihrem Profilbild in der oberen rechten Ecke aus.
-2. Wähle "Personal Access Tokens" aus.
-3. Wähle auf der Seite "Persönliche Zugriffstoken" "Neues Token" aus und gebe die folgenden Werte ein:
+1. Wähle in Azure DevOps die Benutzereinstellungen neben Ihrem Profilbild in der oberen rechten Ecke aus.  
+2. Wähle "Personal Access Tokens" aus.  
+3. Wähle auf der Seite "Persönliche Zugriffstoken" "Neues Token" aus und gebe die folgenden Werte ein:  
 
 | Einstellung| Wert|
 | --- | --- |
@@ -134,7 +134,7 @@ Um ein PAT zu erstellen:
 
 ###### Service Connection - Client Secret
 
-1. App Registration als Service Connection in Azure DevOps anlegen. [Create an Azure Resource Manager service connection that uses an existing service principal](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-azure-resource-manager-service-connection-that-uses-an-existing-service-principal)  
+1. App Registration als Service Connection in Azure DevOps anlegen.[Create an Azure Resource Manager service connection that uses an existing service principal](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-azure-resource-manager-service-connection-that-uses-an-existing-service-principal)  
 
 ###### Service Connection - Federated Credentials
 
@@ -290,7 +290,7 @@ else
   ./run.sh --once & wait $!
 fi
 ```
-> Hinweis: Prüft mittels Visual Studio Code die End of Line Sequens diese muss auf LF stehen **nicht** `CRLF`. Sonst kommt es im weitern zu fehlern.
+> Hinweis: Prüft mittels Visual Studio Code die End of Line Sequens diese muss auf LF stehen **nicht** `CRLF`. Sonst kommt es zu fehlern.
 
 
 **agent\Dockerfile**

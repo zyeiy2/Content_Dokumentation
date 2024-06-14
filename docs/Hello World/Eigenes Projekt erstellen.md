@@ -8,7 +8,7 @@ Wir erstellen unser eigenes Projekt:
   ![Bild1.png](Bild1.png)   
 4. Terms and Condition -> Continue  
 5. Vergebt einen Organisationsnamen  
-6. In **North Europe** alternativ **West Europe** 
+6. In **Europe** alternativ **Europe** 
 7. Solve the Captcha  
 ![Bild2.png](Bild2.png)  
 8. Vergebt einen Projektnamen **Schulung**   

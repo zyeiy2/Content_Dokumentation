@@ -142,9 +142,9 @@ Da das AZ Copy am besten auf Windows läuft, nutzt bitte **windows-latest**.
 - TargetType: 'inline'  
 - script   
 ```PowerShell  
-Write-Host "Start delte https://$(storageAccount).blob.core.windows.net/$(container)"
+Write-Host "Start delete https://$(storageAccount).blob.core.windows.net/$(container)"
 azcopy rm "https://$(storageAccount).blob.core.windows.net/$(container)/$(sasToken)" --recursive=true
-Write-Host "Finish delte https://$(storageAccount).blob.core.windows.net/$(container)"
+Write-Host "Finish delete https://$(storageAccount).blob.core.windows.net/$(container)"
 Write-Host "Start upload content https://$(storageAccount).blob.core.windows.net/$(container)"
 azcopy copy $(Pipeline.Workspace)/build/site/* "https://$(storageAccount).blob.core.windows.net/$(container)/$(sasToken)" --recursive=true
 Write-Host "Finish upload content https://$(storageAccount).blob.core.windows.net/$(container)"

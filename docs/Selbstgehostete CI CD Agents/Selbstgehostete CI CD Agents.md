@@ -140,27 +140,6 @@ Um ein PAT zu erstellen:
 
 1. App Registration als Service Connection in Azure DevOps anlegen. [Create an Azure Resource Manager service connection that uses workload identity federation](https://learn.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-azure-resource-manager-service-connection-that-uses-workload-identity-federation)  
 
-#### Variablen im BuildEnvironment.yml
-
-Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEnvironment.yml`-Datei.
-
-| Name | Wert | Erklärung | Beispiel | 
-| --- | --- | --- | --- |
-| LOCATION | Zu definieren | Die Azure Region, in der die Containerlösung betrieben werden soll. | westeurope |
-| RESOURCEGROUP | Zu definieren | Die Ressourcengruppe, in der die Lösung deployt wird. | shared |
-| CONTAINERREGISTRYNAME | Zu definieren | Der eindeutige Name der Container Registry, die eingerichtet werden soll. | cragentwe001 |
-| ENVIRONMENT | Zu definieren | Das zu erstellende Environment. Name muss eindeutig sein. | caeagentwe001 |
-| JOBNAME | azure-pipelines-agent-job-we001 | Der Anzeigename des Container-Jobs. | azure-pipelines-agent-job-we001 |
-| PLACEHOLDERJOBNAME | placeholder-agent-job-we001 | Der Anzeigename des Platzhalter-Jobs. | placeholder-agent-job-we001 |
-| CONTAINERIMAGENAME | azure-pipelines-agent:1.0.$(Build.BuildId) | Der Name des in der Container Registry gebauten Images. | azure-pipelines-agent:1.0.$(Build.BuildId) |
-| USESUBNET | false | Steuert die Netzwerkeinstellung; `false` für öffentlich, `true` für netzwerkisoliert. | false |
-| INFRASTRUCTURESUBNETID | Zu definieren | Die Azure Netzwerk-ID, in die die Containerlösung integriert wird. [Networking in Azure Container Apps environment](https://learn.microsoft.com/en-us/azure/container-apps/networking)| /subscriptions/<tbd_subscription_id>/resourceGroups/<tbd_resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<tbd_virtualNetworkName>/subnets/<tbd_subnetName> |
-| INTERNALROUTING | true | Gibt an, dass die Umgebung nur über einen internen Load Balancer verfügt und keine öffentliche statische IP-Ressource besitzt. Muss `INFRASTRUCTURESUBNETID` angeben, wenn aktiviert. | true |
-| ORGANIZATIONURL | Zu definieren | Die URL der Azure DevOps Organisation, in der die Agents eingerichtet werden. | https://dev.azure.com/<Organisation> |
-| AZPPOOL | SelfHostedContainerAgents | Der Name des Agentpools. | SelfHostedContainerAgents |
-| isImageBuild | Pipeline Variable | Gibt an, ob es sich um ein Initial-Setup (`false`) oder um den Bau einer neuen Image-Version (`true`) handelt. | An der Pipeline zu definieren |
-| ServiceConnection | Zu definieren | Die eingerichtete Service-Connection in Azure DevOps. Kommt mehrfach vor. | ServiceConnection_Name |
-
 #### Neues Azure DevOps Repo erstellen
 Erstelle ein neues Azure DevOps Repo.
 Klone das Repo lokal und lege folgende Struktur an:
@@ -629,6 +608,27 @@ Erstelle zwei Pipelines in Azure DevOps:
     - **imageBuild** mit dem Wert **false**. Wähle die Option (Die Benutzer können diesen Wert bei der Ausführung dieser Pipeline überschreiben.)
     - **AZP_TOKEN** mit dem Wert aus dem Abschnitt **Zugriffstoken** . Wähle die Option (Die Benutzer können diesen Wert bei der Ausführung dieser Pipeline überschreiben.)
 2. **TestAgent.yml** für die Pipeline `TestBuildAgent` im Ordner `Orga`.
+
+#### Variablen im BuildEnvironment.yml
+
+Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEnvironment.yml`-Datei.
+
+| Name | Wert | Erklärung | Beispiel | 
+| --- | --- | --- | --- |
+| LOCATION | Zu definieren | Die Azure Region, in der die Containerlösung betrieben werden soll. | westeurope |
+| RESOURCEGROUP | Zu definieren | Die Ressourcengruppe, in der die Lösung deployt wird. | shared |
+| CONTAINERREGISTRYNAME | Zu definieren | Der eindeutige Name der Container Registry, die eingerichtet werden soll. | cragentwe001 |
+| ENVIRONMENT | Zu definieren | Das zu erstellende Environment. Name muss eindeutig sein. | caeagentwe001 |
+| JOBNAME | azure-pipelines-agent-job-we001 | Der Anzeigename des Container-Jobs. | azure-pipelines-agent-job-we001 |
+| PLACEHOLDERJOBNAME | placeholder-agent-job-we001 | Der Anzeigename des Platzhalter-Jobs. | placeholder-agent-job-we001 |
+| CONTAINERIMAGENAME | azure-pipelines-agent:1.0.$(Build.BuildId) | Der Name des in der Container Registry gebauten Images. | azure-pipelines-agent:1.0.$(Build.BuildId) |
+| USESUBNET | false | Steuert die Netzwerkeinstellung; `false` für öffentlich, `true` für netzwerkisoliert. | false |
+| INFRASTRUCTURESUBNETID | Zu definieren | Die Azure Netzwerk-ID, in die die Containerlösung integriert wird. [Networking in Azure Container Apps environment](https://learn.microsoft.com/en-us/azure/container-apps/networking)| /subscriptions/<tbd_subscription_id>/resourceGroups/<tbd_resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<tbd_virtualNetworkName>/subnets/<tbd_subnetName> |
+| INTERNALROUTING | true | Gibt an, dass die Umgebung nur über einen internen Load Balancer verfügt und keine öffentliche statische IP-Ressource besitzt. Muss `INFRASTRUCTURESUBNETID` angeben, wenn aktiviert. | true |
+| ORGANIZATIONURL | Zu definieren | Die URL der Azure DevOps Organisation, in der die Agents eingerichtet werden. | https://dev.azure.com/<Organisation> |
+| AZPPOOL | SelfHostedContainerAgents | Der Name des Agentpools. | SelfHostedContainerAgents |
+| isImageBuild | Pipeline Variable | Gibt an, ob es sich um ein Initial-Setup (`false`) oder um den Bau einer neuen Image-Version (`true`) handelt. | An der Pipeline zu definieren |
+| ServiceConnection | Zu definieren | Die eingerichtete Service-Connection in Azure DevOps. Kommt mehrfach vor. | ServiceConnection_Name |
 
 #### Ausführen der Pipelines
 1. Führe die **SetupBuildAgent** Pipeline aus und beobachte, ob alle Ressourcen in der Azure Resource Group angelegt werden.

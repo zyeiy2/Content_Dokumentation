@@ -158,7 +158,7 @@ Füge die Inhalte wie beschrieben in die Dateien ein.
 Die Files sollten folgende Inhalte haben:
 
 
-**agent\azure-pipeline-agent\start.sh**
+**docker\azure-pipeline-agent\start.sh**
 ```sh
 #!/bin/bash
 set -e

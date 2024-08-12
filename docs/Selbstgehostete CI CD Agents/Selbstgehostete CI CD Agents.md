@@ -399,17 +399,17 @@ trigger: none
 variables:
 ## Azure
 - name: LOCATION
-  value: todo_LOCATION
+  value: todo_LOCATION  ## Enter your Azure location here
 - name: RESOURCEGROUP
-  value: todo_RESOURCEGROUP
+  value: todo_RESOURCEGROUP ## Enter your Azure Resourcegroup here -> Must be Unique
 - name: CONTAINERREGISTRYNAME
-  value: todo_CONTAINERREGISTRYNAME 
+  value: todo_CONTAINERREGISTRYNAME  ## Enter your Container Registry here -> Must be Unique
 - name: ENVIRONMENT
-  value: todo_ENVIRONMENT 
+  value: todo_ENVIRONMENT ## Enter your Container Environment here -> Must be Unique
 - name: JOBNAME
-  value: azure-pipelines-agent-job-we001
+  value: azure-pipelines-agent-job-we001  ## Enter your Jobname here
 - name: PLACEHOLDERJOBNAME
-  value: placeholder-agent-job-we001
+  value: placeholder-agent-job-we001 ## Enter your Placeholder Job Name here
 - name: CONTAINERIMAGENAME
   value: azure-pipelines-agent:1.0.$(Build.BuildId)
 ## Network
@@ -422,7 +422,7 @@ variables:
   value: true ## true or false
 ## DevOps  
 - name: ORGANIZATIONURL
-  value: todo_ORGANIZATIONURL 
+  value: todo_ORGANIZATIONURL  ## Enter your Azure Organization URL
 - name: AZPPOOL
   value: SelfHostedContainerAgents
 ## Control
@@ -617,8 +617,8 @@ Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEn
 | --- | --- | --- | --- |
 | LOCATION | Zu definieren | Die Azure Region, in der die Containerlösung betrieben werden soll. | westeurope |
 | RESOURCEGROUP | Zu definieren | Die Ressourcengruppe, in der die Lösung deployt wird. | shared |
-| CONTAINERREGISTRYNAME | Zu definieren | Der eindeutige Name der Container Registry, die eingerichtet werden soll. | cragentwe001 |
-| ENVIRONMENT | Zu definieren | Das zu erstellende Environment. Name muss eindeutig sein. | caeagentwe001 |
+| CONTAINERREGISTRYNAME | Zu definieren | Der Name der Container Registry, die eingerichtet werden soll. **Dieser Name muss Einzigartig sein.**| cragentwe001 |
+| ENVIRONMENT | Zu definieren | Das zu erstellende Environment. Name muss eindeutig sein.  **Dieser Name muss Einzigartig sein.**| caeagentwe001 |
 | JOBNAME | azure-pipelines-agent-job-we001 | Der Anzeigename des Container-Jobs. | azure-pipelines-agent-job-we001 |
 | PLACEHOLDERJOBNAME | placeholder-agent-job-we001 | Der Anzeigename des Platzhalter-Jobs. | placeholder-agent-job-we001 |
 | CONTAINERIMAGENAME | azure-pipelines-agent:1.0.$(Build.BuildId) | Der Name des in der Container Registry gebauten Images. | azure-pipelines-agent:1.0.$(Build.BuildId) |

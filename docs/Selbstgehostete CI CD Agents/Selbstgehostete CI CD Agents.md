@@ -172,7 +172,7 @@ Repo
 └───docker
     │   Dockerfile
     └───azure-pipelines-agent
-            start.sh
+        |    start.sh
 ```
 Füge die Inhalte wie beschrieben in die Dateien ein.
 

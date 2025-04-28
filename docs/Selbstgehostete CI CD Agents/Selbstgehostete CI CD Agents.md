@@ -370,11 +370,25 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommend
     git \ 
     jq \
     python3 \
-    python3-pip 
+    python3-pip \
+    rsync \
+    wget
 
 RUN pip3 install --no-cache-dir \
     mkdocs==1.5.3 \
-    mkdocs-material==9.5.10 
+    mkdocs-material==9.5.10
+
+# powershell
+# Install PowerShell
+ENV PS_VERSION 7.4.6
+ENV PS_PACKAGE powershell_${PS_VERSION}-1.deb_amd64.deb
+
+RUN wget https://github.com/PowerShell/PowerShell/releases/download/v${PS_VERSION}/${PS_PACKAGE} \
+ && dpkg -i ${PS_PACKAGE} || apt-get install -f -y \
+ && rm ${PS_PACKAGE} \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/* \
+ && /usr/bin/env pwsh
 
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 
@@ -564,6 +578,26 @@ pool:
   name: SelfHostedContainerAgents
 
 steps:
+- pwsh: |
+    $ErrorActionPreference = 'Stop'
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    try {
+      Invoke-WebRequest -Method HEAD `
+                        -Uri https://download.agent.dev.azure.com/agent/4.252.0/vsts-agent-win-x64-4.252.0.zip `
+                        -TimeoutSec 5 `
+                        -UseBasicParsing `
+                        | Set-Variable response
+      if ($response.StatusCode -lt 400) {
+        Write-Host "Agent CDN is accessible. Status code: $($response.StatusCode)"
+      } else {
+        throw
+      }
+    } catch {
+      Write-Host "##vso[task.logissue type=warning]Can't access download.agent.dev.azure.com. Please make sure the access is not blocked by a firewall."
+      Write-Error "Agent CDN is inaccessible. Please make sure the access is not blocked by a firewall"
+      $response | Format-List
+    }
+  displayName: 'Test download.agent.dev.azure.com access'
 - script: |
     sleep 30
   displayName: 'Sleep'

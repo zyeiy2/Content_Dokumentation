@@ -122,11 +122,12 @@ graph TD
 ![Azure Ressources](Azure%20Ressources.png)
 ![Container Registry Images](Container%20Registry%20Images.png)
 
-**Azure Kosten**  
-| Service category |Service type | Region |  Estimated monthly cost in € |
+**Azure Kosten** 
+
+| Service category | Service type | Region |  Estimated monthly cost in € |
 | --- | --- | --- | --- | 
 | Containers | Azure Container Registry | West Europe | 5.08€ |
-| Containers | Azure Container Apps | West Europe  48.87€ |
+| Containers | Azure Container Apps | West Europe | 48.87€ |
 
 > Hinweis: Bei dieser Rechnung wird davon ausgegangen das es 100 Stunden an Release Aktivitäten kommt in denen der Self Hosted- Agent gebraucht wird. 
 Das sind pro Tag 3 Stunden, 20 Minuten Agent Runtime pro Tag. Dies ist ein ausreichender Puffer.

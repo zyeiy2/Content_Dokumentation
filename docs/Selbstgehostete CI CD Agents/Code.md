@@ -788,7 +788,7 @@ Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEn
 | isImageBuild | Pipeline Variable | Gibt an, ob es sich um ein Initial-Setup (`false`) oder um den Bau einer neuen Image-Version (`true`) handelt. | An der Pipeline zu definieren |
 | ServiceConnection | Zu definieren | Die eingerichtete Service-Connection in Azure DevOps. Kommt mehrfach vor. | ServiceConnection_Name |
 
-**Ausführen der Pipelines**
+**Ausführen der Pipelines**  
 1. Führe die **SetupBuildAgent** Pipeline aus und beobachte, ob alle Ressourcen in der Azure Resource Group angelegt werden.  
 1. Im Anschluss an die Ausführung der Pipeline **SetupBuildAgent** den Wert **imageBuild** auf `true` stellen.  
 1. Führe die `TestBuildAgent` Pipeline aus und überprüfe, ob ein selbst gehosteter Agent verwendet wird.  

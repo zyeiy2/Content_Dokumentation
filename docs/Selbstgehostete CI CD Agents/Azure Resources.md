@@ -122,7 +122,7 @@ graph TD
 ![Azure Ressources](Azure%20Ressources.png)
 ![Container Registry Images](Container%20Registry%20Images.png)
 
-**Azure Kosten**
+**Azure Kosten**  
 | Service category |Service type | Region | Description | Estimated monthly cost in € |
 | --- | --- | --- | --- | --- | 
 | Containers | Azure Container Registry | West Europe | Basic Tier, 1 registry x 30 days, 5 GB Extra Storage, Container Build - 4 CPUs x 600 Seconds - Internet Egress transfer type, 5 GB outbound data transfer from West Europe routed via Microsoft Global Network | 5.08€ |

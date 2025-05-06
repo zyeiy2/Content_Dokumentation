@@ -229,7 +229,9 @@ AZP_AGENT_PACKAGES=$(curl ... )
 ```bash
 curl -LsS $AZP_AGENT_PACKAGE_LATEST_URL | tar -xz
 ```
+
 - Der Agent wird direkt heruntergeladen und **entpackt** (kein Zwischenspeichern nötig).
+
 ---
 
 **Agent konfigurieren**
@@ -370,11 +372,13 @@ ENV DEBIAN_FRONTEND=noninteractive \
 - Diese `ENV`-Anweisungen setzen Umgebungsvariablen. Diese Werte (wie z. B. Versionsnummern) werden später beim Herunterladen von Tools verwendet.
 
 ---
+
 ```dockerfile
 WORKDIR /build
 ``` 
-
+ 
 - Wechselt in das Arbeitsverzeichnis `/build`. Alles, was ab jetzt installiert oder gespeichert wird, landet hier.
+ 
 ---
 
 ```dockerfile
@@ -785,6 +789,6 @@ Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEn
 | ServiceConnection | Zu definieren | Die eingerichtete Service-Connection in Azure DevOps. Kommt mehrfach vor. | ServiceConnection_Name |
 
 **Ausführen der Pipelines**
-1. Führe die **SetupBuildAgent** Pipeline aus und beobachte, ob alle Ressourcen in der Azure Resource Group angelegt werden.
-1. Im Anschluss an die Ausführung der Pipeline **SetupBuildAgent** den Wert **imageBuild** auf `true` stellen.
-1. Führe die `TestBuildAgent` Pipeline aus und überprüfe, ob ein selbst gehosteter Agent verwendet wird.
+1. Führe die **SetupBuildAgent** Pipeline aus und beobachte, ob alle Ressourcen in der Azure Resource Group angelegt werden.  
+1. Im Anschluss an die Ausführung der Pipeline **SetupBuildAgent** den Wert **imageBuild** auf `true` stellen.  
+1. Führe die `TestBuildAgent` Pipeline aus und überprüfe, ob ein selbst gehosteter Agent verwendet wird.  

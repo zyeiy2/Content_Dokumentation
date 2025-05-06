@@ -2,8 +2,8 @@
 
 Bevor ein selbstgehosteter Agent in Azure DevOps eine Pipeline ausführen kann, müssen im Hintergrund verschiedene Azure-Ressourcen dynamisch bereitgestellt und orchestriert werden. Dieser Abschnitt zeigt, wie dieser automatisierte Prozess im Detail abläuft – von der Erstellung der Infrastruktur über das Erzeugen und Bereitstellen eines Container-Images bis hin zur Registrierung eines temporären Agents im DevOps Agent Pool. Das folgende Diagramm veranschaulicht die einzelnen Schritte der Provisionierung, die initial durchlaufen werden müssen.
 
-#### Ressourcen Provisionierung
-:::mermaid
+**Ressourcen Provisionierung**
+```mermaid
 graph TD
   %% Legend 
   subgraph Legend
@@ -61,11 +61,11 @@ graph TD
   D --> |IsImageBuild=true|F
   E3 -->G 
   F -->G 
-:::
+```
 
 
-#### Pipeline ausführung
-:::mermaid
+**Pipeline ausführung**
+```mermaid
 graph TD
   %% Legend 
   subgraph Legend
@@ -75,7 +75,7 @@ graph TD
     style L1 fill:#107C10,stroke:#0B5C0B,color:#ffffff
     style L2 fill:#0078D7,stroke:#005A9E,color:#ffffff
   end
-  
+
   A[Start der DevOps Pipeline] --> B[Start des Container App Jobs]
   B --> C[Registrierung des Agents bei Azure DevOps]
   C --> D[Ausführung der Pipeline]
@@ -89,9 +89,7 @@ graph TD
   style D fill:#107C10,stroke:#0B5C0B,color:#ffffff
   style E fill:#107C10,stroke:#0B5C0B,color:#ffffff
   style F fill:#0078D7,stroke:#005A9E,color:#ffffff
-:::
-
-
+```
 
 1. **Ausführung der Azure Pipeline**  
     Die Pipeline wird in Azure DevOps gestartet.
@@ -120,11 +118,11 @@ graph TD
     ![Run-8.png](Run-8.png)
 
 
-#### Azure Ressourcen und Image in der Container Registry
+**Azure Ressourcen und Image in der Container Registry**
 ![Azure Ressources](Azure%20Ressources.png)
 ![Container Registry Images](Container%20Registry%20Images.png)
 
-### Azure Kosten
+**Azure Kosten**
 | Service category |Service type | Region | Description | Estimated monthly cost in € |
 | --- | --- | --- | --- | --- | 
 | Containers | Azure Container Registry | West Europe | Basic Tier, 1 registry x 30 days, 5 GB Extra Storage, Container Build - 4 CPUs x 600 Seconds - Internet Egress transfer type, 5 GB outbound data transfer from West Europe routed via Microsoft Global Network | 5.08€ |

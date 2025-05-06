@@ -1,7 +1,7 @@
 # Code
 In diesem Schritt richten wir ein neues Azure DevOps Repository ein, das als Grundlage für die Erstellung und Verwaltung von CI/CD-Pipelines dient. Dieses Repository wird die notwendigen Konfigurationsdateien und Docker-Skripte enthalten, um einen selbstgehosteten Agenten in einer Containerumgebung zu betreiben. 
 
-## Neues Azure DevOps Repo erstellen
+**Neues Azure DevOps Repo erstellen
 Erstelle ein neues Azure DevOps Repo.
 Klone das Repo lokal und lege folgende Struktur an:
 ```
@@ -18,7 +18,7 @@ Füge die Inhalte wie beschrieben in die Dateien ein.
 
 Die Files sollten folgende Inhalte haben:
 
-### start.sh
+**start.sh**
 **docker\azure-pipeline-agent\start.sh**
 ```sh
 #!/bin/bash
@@ -133,7 +133,7 @@ fi
 ```
 > Hinweis: Prüft mittels Visual Studio Code die End of Line Sequens diese muss auf LF stehen **nicht** `CRLF`. Sonst kommt es zu fehlern.
 
-#### Ziel des Skripts
+**Ziel des Skripts**
 
 Das Skript startet einen **Azure Pipelines Agent** in einem Docker-Container. Dieser Agent verbindet sich mit Azure DevOps und führt dort automatisch Aufgaben aus (z. B. Builds oder Deployments). Dazu muss er wissen:
 
@@ -141,7 +141,7 @@ Das Skript startet einen **Azure Pipelines Agent** in einem Docker-Container. Di
 - Welchen Zugangstoken er verwenden darf `AZP_TOKEN`
 - In welchem Pool und Arbeitsverzeichnis er laufen soll `AZP_POOL`
 
-#### Schritt-für-Schritt-Erklärung
+**Schritt-für-Schritt-Erklärung**
 **Fehlende Umgebungsvariablen prüfen**
 ```bash
 if [ -z "$AZP_URL" ]; then
@@ -261,7 +261,7 @@ Das `start.sh`-Skript sorgt dafür, dass sich der Container beim Start automatis
 - Alles andere wird automatisch gemacht: Download, Einrichtung, Start.
 - Der Agent lebt nur so lange wie der Container – beim nächsten Start passiert alles neu.
 
-### Dockerfile
+**Dockerfile**
 **agent\Dockerfile**
 ```Dockerfile
 FROM ubuntu:20.04 AS builder
@@ -297,6 +297,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TARGETARCH=linux-x64 \
     MKDOCS_VERSION=1.6.1 \
     MKDOCS_MATERIAL_VERSION=9.6.12 \
+    MKDOCS_MERMAID2_VERSION=1.2.1 \
     PS_VERSION=7.5.1 \
     PS_PACKAGE=powershell_7.5.1-1.deb_amd64.deb
 
@@ -318,7 +319,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     wget \
     zip && \
-    pip3 install --no-cache-dir mkdocs==${MKDOCS_VERSION} mkdocs-material==${MKDOCS_MATERIAL_VERSION} && \
+    pip3 install --no-cache-dir mkdocs==${MKDOCS_VERSION} mkdocs-material==${MKDOCS_MATERIAL_VERSION} mkdocs-mermaid2-plugin==$(MKDOCS_MERMAID2_VERSION) && \
     wget https://github.com/PowerShell/PowerShell/releases/download/v${PS_VERSION}/${PS_PACKAGE} && \
     dpkg -i ${PS_PACKAGE} || apt-get install -f -y && rm ${PS_PACKAGE} && \
     curl -sL https://aka.ms/InstallAzureCLIDeb | bash && \
@@ -345,7 +346,7 @@ Ein **Container** ist eine Art „Mini-Computer“, der isoliert auf deinem Syst
 Dieses Dockerfile nutzt **zwei** Abschnitte, die jeweils mit `FROM ...` anfangen. Das ist ein **Multi-Stage Build**: Es hilft dabei, unnötige Dateien (z. B. Installationsdateien) aus dem finalen Container herauszuhalten. Der erste Teil dient als „Bauarbeiter“, der die Tools installiert. Der zweite Teil ist der eigentliche „Container“, den du später benutzt.
 
 
-#### Schritt-für-Schritt-Erklärung
+**Schritt-für-Schritt-Erklärung**
 **Bauphase: Werkzeuge bauen & vorbereiten**
 
 ```dockerfile
@@ -750,7 +751,7 @@ steps:
   continueOnError: true
 ```
 
-#### Pipelines erstellen
+**Pipelines erstellen**
 Erstelle zwei Pipelines in Azure DevOps:
 
 1. **BuildEnvironment.yml** für die Pipeline `SetupBuildAgent` im Ordner `Orga`. 
@@ -759,7 +760,7 @@ Erstelle zwei Pipelines in Azure DevOps:
     - **AZP_TOKEN** mit dem Wert aus dem Abschnitt **Zugriffstoken** . Wähle die Option (Die Benutzer können diesen Wert bei der Ausführung dieser Pipeline überschreiben.)
 1. **TestAgent.yml** für die Pipeline `TestBuildAgent` im Ordner `Orga`.
 
-#### Variablen im BuildEnvironment.yml
+**Variablen im BuildEnvironment.yml**
 
 Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEnvironment.yml`-Datei.
 
@@ -780,7 +781,7 @@ Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEn
 | isImageBuild | Pipeline Variable | Gibt an, ob es sich um ein Initial-Setup (`false`) oder um den Bau einer neuen Image-Version (`true`) handelt. | An der Pipeline zu definieren |
 | ServiceConnection | Zu definieren | Die eingerichtete Service-Connection in Azure DevOps. Kommt mehrfach vor. | ServiceConnection_Name |
 
-#### Ausführen der Pipelines
+**Ausführen der Pipelines**
 1. Führe die **SetupBuildAgent** Pipeline aus und beobachte, ob alle Ressourcen in der Azure Resource Group angelegt werden.
 1. Im Anschluss an die Ausführung der Pipeline **SetupBuildAgent** den Wert **imageBuild** auf `true` stellen.
 1. Führe die `TestBuildAgent` Pipeline aus und überprüfe, ob ein selbst gehosteter Agent verwendet wird.

@@ -7,7 +7,7 @@ Mission: Selfhosted – Azure DevOps als Live-Spiel
 Erlebt interaktiv den Ablauf eines Selfhosted Build Agent-Szenarios in Azure DevOps. 
 Die Spielenden übernehmen die Rollen realer Komponenten und simulieren den Build- und Deploymentprozess.
 
-## Rollen mit Beschreibung & Spieltext
+**Rollen mit Beschreibung & Spieltext**
 
 |Rolle|Aufgabe|Signal|
 |--|--|--|
@@ -19,8 +19,8 @@ Die Spielenden übernehmen die Rollen realer Komponenten und simulieren den Buil
 |Container Instanz|Holt das Image, startet den Container, erkennt fehlende Komponenten.|"Container läuft!" / "Komponente MkDocs fehlt!"|
 
 
-## Spielablauf
-### Phase 1 – Erster Build
+**Spielablauf**
+**Phase 1 – Erster Build**
 1. Dockerfile Master übergibt das Dockerfile (Zettel mit Anweisungen) an die Container Registry.
 1. Container Registry baut das Image und speichert es.
 1. Placeholder Agent erkennt: "Ein neuer Pipeline-Job will laufen!"
@@ -29,28 +29,28 @@ Die Spielenden übernehmen die Rollen realer Komponenten und simulieren den Buil
 1. Job Agent registriert sich im Agent Pool.
 1. Azure DevOps Pipeline wird ausgeführt .
 
-## 🎴 Rollenkarten 
-### Dockerfile Master
+**Rollenkarten**
+**Dockerfile Master**
 - 📝 Aufgabe: Bauanleitung übergeben und korrigieren
 - 🎙️ Signal: „Ich ergänze: pip install mkdocs!“
 
-### Container Registry
+**Container Registry**
 - 🏗️ Aufgabe: Image bauen und speichern
 - 🎙️ Signal: „Image gespeichert!“
 
-### Placeholder Agent
+**Placeholder Agent**
 - 🕹️ Aufgabe: Job Agent starten
 - 🎙️ Signal: „Pipeline erkannt – starte Job Agent!“
 
-### Job Agent
+**Job Agent**
 - 🛠️ Aufgabe: Image holen, Pipeline ausführen
 - 🎙️ Signal: „Registriere mich im Agent Pool!“
 
-### Agent Pool
+**Agent Pool**
 - 🗂️ Aufgabe: Agent registrieren
 - 🎙️ Signal: „Pipeline läuft!“
 
-### Container Instanz
+**Container Instanz**
 - 📦 Aufgabe: Image starten, Fehler erkennen
 - 🎙️ Signal: „MkDocs fehlt!“ / „Container läuft!“
 

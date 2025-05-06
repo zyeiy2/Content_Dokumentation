@@ -1,6 +1,6 @@
 # Einordnung in Azure DevOps 
 
-### Einordnung: Selbstgehostete Agents in Azure DevOps
+**Einordnung: Selbstgehostete Agents in Azure DevOps**
 
 In Azure DevOps dienen **Build- und Release-Agents** dazu, automatisierte Pipelines auszuführen – sei es für Builds, Tests oder Deployments. Standardmäßig stellt Microsoft sogenannte **Microsoft-hosted Agents** zur Verfügung. Für viele Standardanwendungen reicht das aus.
 
@@ -13,7 +13,7 @@ In Azure DevOps dienen **Build- und Release-Agents** dazu, automatisierte Pipeli
 
 Ein selbstgehosteter Agent ist im Grunde ein Dienst, der auf einer eigenen VM, einem physischen Server oder auch einem Container läuft. Er verbindet sich über einen sicheren Kanal mit Azure DevOps und wartet auf Aufgaben aus einer Pipeline. Dabei hat das Team die volle Kontrolle über Betriebssystem, installierte Software, Hardware-Ressourcen und Sicherheitsrichtlinien.
 
-### Warum ist das wichtig?
+**Warum ist das wichtig?**
 
 - Ihr könnt lokale Entwicklungsumgebungen sehr genau nachbilden.
 - Ihr reduziert unnötige Fehler durch Umgebungsunterschiede.
@@ -22,7 +22,7 @@ Ein selbstgehosteter Agent ist im Grunde ein Dienst, der auf einer eigenen VM, e
 
 > Hinweis: Mit der Kontrolle kommt auch Verantwortung – etwa für Updates, Sicherheitspatches, Agent-Verfügbarkeit und Skalierung. 
 
-### Vergleich: Microsoft-hosted vs. Selbstgehostete Agents
+**Vergleich: Microsoft-hosted vs. Selbstgehostete Agents**
 
 | Merkmal| Microsoft-hosted Agent| Selbstgehosteter Agent|
 | -- | -- | -- |
@@ -35,8 +35,7 @@ Ein selbstgehosteter Agent ist im Grunde ein Dienst, der auf einer eigenen VM, e
 | **Netzwerkzugriff** | Eingeschränkt (kein Zugriff auf interne Netzwerke) | Voller Zugriff auf interne Ressourcen|
 
 ---
-
-### 🧭 Wann sollte man welchen Agent-Typ wählen?
+**Wann sollte man welchen Agent-Typ wählen?**
 
 **Microsoft-hosted Agents** sind ideal für:
 

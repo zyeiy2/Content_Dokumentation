@@ -45,6 +45,7 @@ plugins:
   - glightbox
   - mermaid2:
       version: 1.2.1
+      javascript: https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs
 
 extra_css:  
   - stylesheets/extra.css

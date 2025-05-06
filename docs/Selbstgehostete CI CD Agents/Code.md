@@ -167,6 +167,7 @@ if [ -z "$AZP_TOKEN_FILE" ]; then
   echo -n $AZP_TOKEN > "$AZP_TOKEN_FILE"
 fi
 ```
+
 - Der Agent braucht einen **Token**, um sich bei Azure DevOps anzumelden.
 - Wenn nur `AZP_TOKEN` gesetzt ist, wird der Token in eine Datei geschrieben (`.token`).
 
@@ -183,6 +184,7 @@ if [ -n "$AZP_WORK" ]; then
   mkdir -p "$AZP_WORK"
 fi
 ```
+
 - Wenn ein Arbeitsverzeichnis angegeben wurde (`AZP_WORK`), wird es erstellt.
 
 ---
@@ -204,6 +206,7 @@ cleanup() {
   ...
 }
 ```
+
 - Diese Funktion wird **automatisch aufgerufen**, wenn das Skript beendet wird (z. B. durch STRG+C).
 - Sie entfernt den Agenten sauber von Azure DevOps – außer, wenn du im „Placeholder“-Modus arbeitest (`AZP_PLACEHOLDER` gesetzt).
 
@@ -336,7 +339,7 @@ RUN chmod +x start.sh
 ENTRYPOINT ["./start.sh"]
 ```
 
-#### Was ist ein Dockerfile?
+**Was ist ein Dockerfile?**
 Ein **Dockerfile** ist eine Textdatei mit Anweisungen, wie ein sogenanntes **Docker-Image** gebaut werden soll. Ein Docker-Image ist so etwas wie ein Schnappschuss eines fertigen Systems (inkl. Software, Konfiguration, Skripten usw.), das dann in einem Container ausgeführt werden kann.
 
 Ein **Container** ist eine Art „Mini-Computer“, der isoliert auf deinem System läuft – immer auf der Basis des Images.
@@ -369,7 +372,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 ---
 ```dockerfile
 WORKDIR /build
-```
+``` 
 
 - Wechselt in das Arbeitsverzeichnis `/build`. Alles, was ab jetzt installiert oder gespeichert wird, landet hier.
 ---

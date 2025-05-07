@@ -275,14 +275,14 @@ flowchart TD
         A1[Starte mit Ubuntu 20.04]
         A2[Setze Umgebungsvariablen]
         A3[Installiere Tools via apt und curl]
-        A4[Entpacke und mache Tools ausführbar:\ndatabricks, yq, terraform, terraform-docs]
+        A4[Entpacke und mache Tools ausführbar databricks, yq, terraform, terraform-docs]
         A5[Clean-up der Builder-Umgebung]
     end
 
     subgraph Final-Stage [Stage 2: agent-image]
         B1[Starte mit Ubuntu 20.04]
         B2[Setze Umgebungsvariablen]
-        B3[Installiere Systemtools\n curl, git, python3, etc.]
+        B3[Installiere Systemtools curl, git, python3, etc.]
         B4[Installiere MkDocs, PowerShell, Azure CLI]
         B5[Kopiere Tools aus builder databricks, yq, terraform, terraform-docs]
         B6[Kopiere start.sh und mache ausführbar]

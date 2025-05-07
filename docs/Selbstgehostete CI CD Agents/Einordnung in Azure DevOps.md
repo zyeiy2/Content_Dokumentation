@@ -33,7 +33,6 @@ Ein selbstgehosteter Agent ist im Grunde ein Dienst, der auf einer eigenen VM, e
 | **Leistung**| Variabel (abhängig von Systemauslastung)| Kontrollierbar (abhängig von eigener Konfiguration)|
 | **Kosten**| Abhängig von Nutzung und Parallelität| Eigene Infrastrukturkosten, aber keine Nutzungskosten|                                                
 | **Netzwerkzugriff** | Eingeschränkt (kein Zugriff auf interne Netzwerke) | Voller Zugriff auf interne Ressourcen|
-
 ---
 **Wann sollte man welchen Agent-Typ wählen?**
 

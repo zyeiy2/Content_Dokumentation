@@ -1,7 +1,8 @@
 # Code
 In diesem Schritt richten wir ein neues Azure DevOps Repository ein, das als Grundlage für die Erstellung und Verwaltung von CI/CD-Pipelines dient. Dieses Repository wird die notwendigen Konfigurationsdateien und Docker-Skripte enthalten, um einen selbstgehosteten Agenten in einer Containerumgebung zu betreiben. 
 
-**Neues Azure DevOps Repo erstellen
+**Neues Azure DevOps Repo erstellen**  
+
 Erstelle ein neues Azure DevOps Repo.
 Klone das Repo lokal und lege folgende Struktur an:
 ```
@@ -18,7 +19,7 @@ Füge die Inhalte wie beschrieben in die Dateien ein.
 
 Die Files sollten folgende Inhalte haben:
 
-**start.sh**
+## start.sh
 **docker\azure-pipeline-agent\start.sh**
 ```sh
 #!/bin/bash
@@ -135,7 +136,7 @@ fi
 
 **Ziel des Skripts**
 
-Das Skript startet einen **Azure Pipelines Agent** in einem Docker-Container. Dieser Agent verbindet sich mit Azure DevOps und führt dort automatisch Aufgaben aus (z. B. Builds oder Deployments). Dazu muss er wissen:
+Das Skript startet einen **Azure Pipelines Agent** in einem Azure-Container. Dieser Agent verbindet sich mit Azure DevOps und führt dort automatisch Aufgaben aus (z. B. Builds oder Deployments). Dazu muss er wissen:
 
 - Wo sich der Azure DevOps Server befindet `AZP_URL`
 - Welchen Zugangstoken er verwenden darf `AZP_TOKEN`
@@ -255,18 +256,46 @@ Der Agent wird mit allen nötigen Infos **ohne Rückfragen** eingerichtet:
 ./run.sh --once
 ```
 
-- `run.sh` startet den Agenten.
+- `run.sh` startet den Agenten.  
 - Mit `--once` wird der Agent **nach einem Durchlauf automatisch beendet** – perfekt für Container.
 
 **Fazit**
 Das `start.sh`-Skript sorgt dafür, dass sich der Container beim Start automatisch bei Azure DevOps anmeldet, den passenden Agent herunterlädt, konfiguriert und ausführt.
 
-**Wichtig zu wissen**
-- Die Kommunikation mit Azure DevOps basiert auf ein paar wenigen Umgebungsvariablen.
-- Alles andere wird automatisch gemacht: Download, Einrichtung, Start.
-- Der Agent lebt nur so lange wie der Container – beim nächsten Start passiert alles neu.
+**Wichtig zu wissen**  
+- Die Kommunikation mit Azure DevOps basiert auf ein paar wenigen Umgebungsvariablen.  
+- Alles andere wird automatisch gemacht: Download, Einrichtung, Start.  
+- Der Agent lebt nur so lange wie der Container – beim nächsten Start passiert alles neu.  
 
-**Dockerfile**
+## Dockerfile
+
+:::mermaid 
+flowchart TD
+    subgraph Builder-Stage [Stage 1: builder]
+        A1[Starte mit Ubuntu 20.04]
+        A2[Setze Umgebungsvariablen]
+        A3[Installiere Tools via apt und curl]
+        A4[Entpacke und mache Tools ausführbar:\ndatabricks, yq, terraform, terraform-docs]
+        A5[Clean-up der Builder-Umgebung]
+    end
+
+    subgraph Final-Stage [Stage 2: agent-image]
+        B1[Starte mit Ubuntu 20.04]
+        B2[Setze Umgebungsvariablen]
+        B3[Installiere Systemtools\n curl, git, python3, etc.]
+        B4[Installiere MkDocs, PowerShell, Azure CLI]
+        B5[Kopiere Tools aus builder databricks, yq, terraform, terraform-docs]
+        B6[Kopiere start.sh und mache ausführbar]
+        B7[Setze ENTRYPOINT auf start.sh]
+    end
+
+    A1 --> A2 --> A3 --> A4 --> A5
+    A5 --> B1
+    B1 --> B2 --> B3 --> B4 --> B5 --> B6 --> B7
+:::
+
+
+
 **agent\Dockerfile**
 ```Dockerfile
 FROM ubuntu:20.04 AS builder
@@ -341,12 +370,12 @@ RUN chmod +x start.sh
 ENTRYPOINT ["./start.sh"]
 ```
 
-**Was ist ein Dockerfile?**
+**Was ist ein Dockerfile?**  
 Ein **Dockerfile** ist eine Textdatei mit Anweisungen, wie ein sogenanntes **Docker-Image** gebaut werden soll. Ein Docker-Image ist so etwas wie ein Schnappschuss eines fertigen Systems (inkl. Software, Konfiguration, Skripten usw.), das dann in einem Container ausgeführt werden kann.
 
 Ein **Container** ist eine Art „Mini-Computer“, der isoliert auf deinem System läuft – immer auf der Basis des Images.
 
-**Besonderheit: Multi-Stage Build (vereinfacht erklärt)**
+**Besonderheit: Multi-Stage Build (vereinfacht erklärt)**  
 
 Dieses Dockerfile nutzt **zwei** Abschnitte, die jeweils mit `FROM ...` anfangen. Das ist ein **Multi-Stage Build**: Es hilft dabei, unnötige Dateien (z. B. Installationsdateien) aus dem finalen Container herauszuhalten. Der erste Teil dient als „Bauarbeiter“, der die Tools installiert. Der zweite Teil ist der eigentliche „Container“, den du später benutzt.
 
@@ -439,7 +468,7 @@ Wieder werden Umgebungsvariablen gesetzt – diesmal für andere Tools wie:
 
 ---
 
-``dockerfile
+```dockerfile
 WORKDIR /azp
 ```
 
@@ -472,11 +501,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 ```
 
-Hier wird wieder Software installiert:
-- **git**, **curl**, **wget**, **python3**, etc.
-- Dann wird MkDocs installiert (über `pip`)
-- PowerShell wird manuell installiert
-- Azure CLI wird über ein Skript installiert
+Hier wird wieder Software installiert:  
+- **git**, **curl**, **wget**, **python3**, etc.  
+- Dann wird MkDocs installiert (über `pip`)  
+- PowerShell wird manuell installiert  
+- Azure CLI wird über ein Skript installiert  
 
 Danach wird wieder „aufgeräumt“ – unnötige Dateien entfernt, um das Image schlanker zu halten.
 
@@ -517,7 +546,6 @@ ENTRYPOINT ["./start.sh"]
 **Zusammenfassung**
 
 Was macht dieses Dockerfile?
-
 1. **Baut in einer ersten Phase** mehrere CLI-Tools (Databricks, yq, Terraform …).
 1. **Erstellt ein sauberes Container-Image** mit allem, was gebraucht wird.
 1. Installiert zusätzlich Dokumentationstools (MkDocs), Azure CLI, PowerShell usw.
@@ -525,7 +553,7 @@ Was macht dieses Dockerfile?
 1. Führt beim Starten des Containers ein Skript aus (`start.sh`), um den Agent/Prozess zu starten.
 
 ---
-
+## BuildEnvironment.yml
 **agent\BuildEnvironment.yml**
 > Hinweis: Hier müssen die todo_ werte ersetzt werden.
 ```yml
@@ -692,7 +720,159 @@ steps:
         --env-vars "AZP_TOKEN=secretref:personal-access-token" "AZP_URL=secretref:organization-url" "AZP_POOL=$AZPPOOL" \
         --registry-server "$CONTAINERREGISTRYNAME.azurecr.io"
 ```
+**Ziel des Scrips?**
 
+Das Ziel des Skripts ist es, einen Self-hosted Azure DevOps Agent dynamisch und skalierbar in Azure Container Apps bereitzustellen.
+
+```yaml
+- task: AzureCLI@2
+  displayName: az containerapp env create || az acr create
+  condition: and(succeeded(), eq(variables.isImageBuild, false))
+  enabled: true
+  inputs:
+    azureSubscription: todo_ServiceConnection
+    addSpnToEnvironment: true
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      if [ "$USESUBNET" = "true" ]; then
+        az containerapp env create \
+          --name "$ENVIRONMENT" \
+          --resource-group "$RESOURCEGROUP" \
+          --location "$LOCATION" \
+          --infrastructure-subnet-resource-id "$INFRASTRUCTURESUBNETID" \
+          --internal-only "$INTERNALROUTING" \
+          --logs-destination none
+      else
+        az containerapp env create \
+          --name "$ENVIRONMENT" \
+          --resource-group "$RESOURCEGROUP" \
+          --location "$LOCATION" \
+          --logs-destination none
+      fi
+      az acr create \
+        --name "$CONTAINERREGISTRYNAME" \
+        --resource-group "$RESOURCEGROUP" \
+        --location "$LOCATION" \
+        --sku Basic \
+        --admin-enabled true
+```
+Dieser Task erledigt folgende Schritte:  
+- Erstellt eine **Azure Container App Umgebung**, wahlweise mit Netzwerkintegration (`USESUBNET = true`) oder ohne.  
+- Erstellt eine **Azure Container Registry (ACR)**, um Container-Images zu speichern.  
+- Beide Ressourcen werden im angegebenen Resource Group und Azure Standort erstellt.  
+
+---
+
+```yaml
+- task: AzureCLI@2
+  displayName: az acr build
+  enabled: true
+  inputs:
+    azureSubscription: todo_ServiceConnection
+    addSpnToEnvironment: true
+    scriptType: bash
+    workingDirectory: $(Pipeline.Workspace)/docs/docker/
+    scriptLocation: inlineScript
+    inlineScript: |
+      az acr build \
+        --registry "$CONTAINERREGISTRYNAME" \
+        --resource-group "$RESOURCEGROUP" \
+        --image "$CONTAINERIMAGENAME" \
+        --file "Dockerfile" \
+        .
+```
+Dieser Task:  
+- Baut ein **Docker-Image** aus dem angegebenen Verzeichnis.  
+- Nutzt `az acr build`, um das Image direkt in die Azure Container Registry hochzuladen.  
+
+---
+
+```yaml
+- task: AzureCLI@2
+  displayName: az containerapp job create || start || delete
+  condition: and(succeeded(), eq(variables.isImageBuild, false))
+  enabled: true
+  inputs:
+    azureSubscription: todo_ServiceConnection
+    addSpnToEnvironment: true
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az containerapp job create \
+        -n "$PLACEHOLDERJOBNAME" -g "$RESOURCEGROUP" \
+        --environment "$ENVIRONMENT" \
+        --trigger-type Manual \
+        --replica-timeout 300 \
+        --replica-retry-limit 0 \
+        --replica-completion-count 1 \
+        --parallelism 1 \
+        --image "$CONTAINERREGISTRYNAME.azurecr.io/$CONTAINERIMAGENAME" \
+        --cpu "2.0" \
+        --memory "4Gi" \
+        --secrets "personal-access-token=$(AZP_TOKEN)" "organization-url=$ORGANIZATIONURL" \
+        --env-vars "AZP_TOKEN=secretref:personal-access-token" "AZP_URL=secretref:organization-url" "AZP_POOL=$AZPPOOL" "AZP_PLACEHOLDER=1" "AZP_AGENT_NAME=placeholder-agent" \
+        --registry-server "$CONTAINERREGISTRYNAME.azurecr.io"
+
+      az containerapp job start -n "$PLACEHOLDERJOBNAME" -g "$RESOURCEGROUP"
+      sleep 90s
+      az containerapp job execution list \
+        --name "$PLACEHOLDERJOBNAME" \
+        --resource-group "$RESOURCEGROUP" \
+        --output table \
+        --query '[].{Status: properties.status, Name: name, StartTime: properties.startTime}'
+
+      az containerapp job delete -n "$PLACEHOLDERJOBNAME" -g "$RESOURCEGROUP" --yes
+```
+Dieser Task:  
+- Erstellt einen **temporären manuellen Container App Job**, um das Image testweise auszuführen.  
+- Der Placeholder Agent wird angelegt.  
+- Startet den Job und wartet kurz.    
+- Listet den Ausführungsstatus auf.    
+- **Löscht den Job** anschließend wieder.    
+---
+
+```yaml
+- task: AzureCLI@2
+  displayName: az containerapp job create
+  enabled: true
+  inputs:
+    azureSubscription: todo_ServiceConnection
+    addSpnToEnvironment: true
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az containerapp job create \
+        -n "$JOBNAME" -g "$RESOURCEGROUP" \
+        --environment "$ENVIRONMENT" \
+        --trigger-type Event \
+        --replica-timeout 1800 \
+        --replica-retry-limit 0 \
+        --replica-completion-count 1 \
+        --parallelism 1 \
+        --image "$CONTAINERREGISTRYNAME.azurecr.io/$CONTAINERIMAGENAME" \
+        --min-executions 0 \
+        --max-executions 10 \
+        --polling-interval 30 \
+        --scale-rule-name "azure-pipelines" \
+        --scale-rule-type "azure-pipelines" \
+        --scale-rule-metadata "poolName=$AZPPOOL" "targetPipelinesQueueLength=1" \
+        --scale-rule-auth "personalAccessToken=personal-access-token" "organizationURL=organization-url" \
+        --cpu "2.0" \
+        --memory "4Gi" \
+        --secrets "personal-access-token=$(AZP_TOKEN)" "organization-url=$ORGANIZATIONURL" \
+        --env-vars "AZP_TOKEN=secretref:personal-access-token" "AZP_URL=secretref:organization-url" "AZP_POOL=$AZPPOOL" \
+        --registry-server "$CONTAINERREGISTRYNAME.azurecr.io"
+```
+Dieser Task:  
+- Erstellt einen **dauerhaften Event-gesteuerten Container App Job**.  
+- Der Job skaliert automatisch, basierend auf der Anzahl wartender Pipelines im Azure DevOps Pool (`targetPipelinesQueueLength=1`).  
+- Nutzt Umgebungsvariablen und Secrets für die Verbindung zu Azure DevOps.  
+
+---
+
+
+## TestAgent.yml
 **agent\TestAgent.yml**
 ```yml
 trigger:
@@ -757,7 +937,95 @@ steps:
   displayName: 'Test mkdocs-material'
   continueOnError: true
 ```
+**Was ist das Ziel des Scripts?**
 
+Das Ziel ist es, die Installation der Komponenten auf dem Agenten zu überprüfen und einen Ende-zu-Ende-Test auszuführen. 
+
+```yaml
+- task: PowerShell@2
+  displayName: Test download.agent.dev.azure.com access
+  inputs:
+    targetType: 'inline'
+    script: |
+      $ErrorActionPreference = 'Stop'
+      [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+      try {
+        Invoke-WebRequest -Method HEAD `
+                          -Uri https://download.agent.dev.azure.com/agent/4.252.0/vsts-agent-win-x64-4.252.0.zip `
+                          -TimeoutSec 5 `
+                          -UseBasicParsing `
+                          | Set-Variable response
+        if ($response.StatusCode -lt 400) {
+          Write-Host "Agent CDN is accessible. Status code: $($response.StatusCode)"
+        } else {
+          throw
+        }
+      } catch {
+        Write-Host "##vso[task.logissue type=warning]Can't access download.agent.dev.azure.com. Please make sure the access is not blocked by a firewall."
+        Write-Error "Agent CDN is inaccessible. Please make sure the access is not blocked by a firewall"
+        $response | Format-List
+      }
+```
+
+Dieser Task:
+- Prüft, ob der Azure DevOps Agent-Download-Endpoint erreichbar ist.
+- Gibt bei Erfolg den Statuscode aus.
+- Gibt bei Fehlern eine Warnung in der Pipeline aus – hilfreich zur Diagnose von Netzwerk- oder Firewallproblemen.
+
+---
+
+```yaml
+- script: sleep 30
+  displayName: Sleep
+  continueOnError: true
+```
+Dieser Task:
+
+- Führt einen kurzen **Wartebefehl** aus (30 Sekunden).
+
+---
+
+```yaml
+- script: az --version
+  displayName: Test Azure CLI
+  continueOnError: true
+```
+
+```yaml
+- script: databricks --version
+  displayName: Test Databricks CLI
+  continueOnError: true
+```
+
+```yaml
+- script: yq --version
+  displayName: Test yq
+  continueOnError: true
+```
+
+```yaml
+- script: terraform version
+  displayName: Test Terraform
+  continueOnError: true
+```
+
+```yaml
+- script: mkdocs --version
+  displayName: Test mkdocs
+  continueOnError: true
+```
+
+```yaml
+- script: pip3 list | grep mkdocs-material
+  displayName: Test mkdocs-material
+  continueOnError: true
+```
+
+Diese Tasks:
+- Überprüfen, ob die Tools **Azure CLI**, **Databricks CLI**, **yq**, **Terraform**, **MkDocs** und das MkDocs-Theme **Material** korrekt installiert sind.
+- Die Ausgaben bestätigen die erfolgreiche Bereitstellung des Container-Agents mit allen benötigten Werkzeugen.
+
+## Aufgabe
 **Pipelines erstellen**
 Erstelle zwei Pipelines in Azure DevOps:
 
@@ -788,7 +1056,7 @@ Ersetze die `todo_` Werte mit den entsprechenden Informationen in Ihrer `BuildEn
 | isImageBuild | Pipeline Variable | Gibt an, ob es sich um ein Initial-Setup (`false`) oder um den Bau einer neuen Image-Version (`true`) handelt. | An der Pipeline zu definieren |
 | ServiceConnection | Zu definieren | Die eingerichtete Service-Connection in Azure DevOps. Kommt mehrfach vor. | ServiceConnection_Name |
 
-**Ausführen der Pipelines**  
+Ausführen der Pipelines:  
 1. Führe die **SetupBuildAgent** Pipeline aus und beobachte, ob alle Ressourcen in der Azure Resource Group angelegt werden.  
-1. Im Anschluss an die Ausführung der Pipeline **SetupBuildAgent** den Wert **imageBuild** auf `true` stellen.  
-1. Führe die `TestBuildAgent` Pipeline aus und überprüfe, ob ein selbst gehosteter Agent verwendet wird.  
+2. Im Anschluss an die Ausführung der Pipeline **SetupBuildAgent** den Wert **imageBuild** auf `true` stellen.  
+3. Führe die `TestBuildAgent` Pipeline aus und überprüfe, ob ein selbst gehosteter Agent verwendet wird.  

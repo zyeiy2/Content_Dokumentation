@@ -78,12 +78,12 @@ nav:
   - Aufgabe: 
     - Aufgabe: "Aufgabe/Aufgabe.md"
   - Module: 
-    - Selbstgehostete CI CD Agents: "Selbstgehostete CI CD Agents/Selbstgehostete CI CD Agents.md"
-    - Einordnung in Azure DevOps: "Selbstgehostete CI CD Agents/Einordnung in Azure DevOps.md"
-    - Human Agents: "Selbstgehostete CI CD Agents/Human Agents.md"
-    - Azure Resources: "Selbstgehostete CI CD Agents/Azure Resources.md"
-    - Code: "Selbstgehostete CI CD Agents/Code.md"
-    - HandsOn: "Selbstgehostete CI CD Agents/HandsOn.md"
+    - Selbstgehostete CI CD Agents: "Module/Selbstgehostete CI CD Agents/Selbstgehostete CI CD Agents.md"
+    - Einordnung in Azure DevOps: "Module/Selbstgehostete CI CD Agents/Einordnung in Azure DevOps.md"
+    - Human Agents: "Module/Selbstgehostete CI CD Agents/Human Agents.md"
+    - Azure Resources: "Module/Selbstgehostete CI CD Agents/Azure Resources.md"
+    - Code: "Module/Selbstgehostete CI CD Agents/Code.md"
+    - HandsOn: "Module/Selbstgehostete CI CD Agents/HandsOn.md"
 
   - Outro: 
     - Outro: "Outro/Outro.md"

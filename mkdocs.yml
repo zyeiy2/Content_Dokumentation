@@ -77,7 +77,7 @@ nav:
     - Templates: "Templates/Templates.md"
   - Aufgabe: 
     - Aufgabe: "Aufgabe/Aufgabe.md"
-  - Module: 
+  - Module/Selbstgehostete CI CD Agents: 
     - Selbstgehostete CI CD Agents: "Module/Selbstgehostete CI CD Agents/Selbstgehostete CI CD Agents.md"
     - Einordnung in Azure DevOps: "Module/Selbstgehostete CI CD Agents/Einordnung in Azure DevOps.md"
     - Human Agents: "Module/Selbstgehostete CI CD Agents/Human Agents.md"

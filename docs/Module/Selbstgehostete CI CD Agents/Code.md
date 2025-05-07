@@ -529,7 +529,7 @@ COPY azure-pipelines-agent/start.sh .
 RUN chmod +x start.sh
 ```
 
-- Ein Skript namens `start.sh` wird in das Container-Verzeichnis kopiert und ausführbar gemacht. Dieses Skript startet später den Container.
+- Ein Skript namens `start.sh` wird in das Container-Verzeichnis kopiert und ausführbar gemacht. Dieses Skript startet später den DevOps Agent.
 
 ---
 
@@ -545,12 +545,12 @@ ENTRYPOINT ["./start.sh"]
 
 **Zusammenfassung**
 
-Was macht dieses Dockerfile?
-1. **Baut in einer ersten Phase** mehrere CLI-Tools (Databricks, yq, Terraform …).
-1. **Erstellt ein sauberes Container-Image** mit allem, was gebraucht wird.
-1. Installiert zusätzlich Dokumentationstools (MkDocs), Azure CLI, PowerShell usw.
-1. **Kopiert nur das Nötige** vom Bau in das finale Image.
-1. Führt beim Starten des Containers ein Skript aus (`start.sh`), um den Agent/Prozess zu starten.
+Was macht dieses Dockerfile?  
+1. **Baut in einer ersten Phase** mehrere CLI-Tools (Databricks, yq, Terraform …).  
+1. **Erstellt ein sauberes Container-Image** mit allem, was gebraucht wird.  
+1. Installiert zusätzlich Dokumentationstools (MkDocs), Azure CLI, PowerShell usw.  
+1. **Kopiert nur das Nötige** vom Bau in das finale Image.  
+1. Führt beim Starten des Containers ein Skript aus (`start.sh`), um den Agent/Prozess zu starten.  
 
 ---
 ## BuildEnvironment.yml
@@ -783,8 +783,7 @@ Dieser Task erledigt folgende Schritte:
         .
 ```
 Dieser Task:  
-- Baut ein **Docker-Image** aus dem angegebenen Verzeichnis.  
-- Nutzt `az acr build`, um das Image direkt in die Azure Container Registry hochzuladen.  
+- Baut ein **Container-Image** aus dem angegebenen Dockerfile und nutzt `az acr build`, um das Image direkt in die Azure Container Registry hochzuladen.  
 
 ---
 
@@ -825,10 +824,8 @@ Dieser Task:
       az containerapp job delete -n "$PLACEHOLDERJOBNAME" -g "$RESOURCEGROUP" --yes
 ```
 Dieser Task:  
-- Erstellt einen **temporären manuellen Container App Job**, um das Image testweise auszuführen.  
+- Erstellt einen **temporären manuellen Container App Job**, um den Placeholder Agent in DevOps zu erstellen.  
 - Der Placeholder Agent wird angelegt.  
-- Startet den Job und wartet kurz.    
-- Listet den Ausführungsstatus auf.    
 - **Löscht den Job** anschließend wieder.    
 ---
 
@@ -967,10 +964,10 @@ Das Ziel ist es, die Installation der Komponenten auf dem Agenten zu überprüfe
       }
 ```
 
-Dieser Task:
-- Prüft, ob der Azure DevOps Agent-Download-Endpoint erreichbar ist.
-- Gibt bei Erfolg den Statuscode aus.
-- Gibt bei Fehlern eine Warnung in der Pipeline aus – hilfreich zur Diagnose von Netzwerk- oder Firewallproblemen.
+Dieser Task:  
+- Prüft, ob der Azure DevOps Agent-Download-Endpoint erreichbar ist.  
+- Gibt bei Erfolg den Statuscode aus.  
+- Gibt bei Fehlern eine Warnung in der Pipeline aus – hilfreich zur Diagnose von Netzwerk- oder Firewallproblemen.  
 
 ---
 
@@ -1021,9 +1018,9 @@ Dieser Task:
   continueOnError: true
 ```
 
-Diese Tasks:
-- Überprüfen, ob die Tools **Azure CLI**, **Databricks CLI**, **yq**, **Terraform**, **MkDocs** und das MkDocs-Theme **Material** korrekt installiert sind.
-- Die Ausgaben bestätigen die erfolgreiche Bereitstellung des Container-Agents mit allen benötigten Werkzeugen.
+Diese Tasks:  
+- Überprüfen, ob die Tools **Azure CLI**, **Databricks CLI**, **yq**, **Terraform**, **MkDocs** und das MkDocs-Theme **Material** korrekt installiert sind.  
+- Die Ausgaben bestätigen die erfolgreiche Bereitstellung des Container-Agents mit allen benötigten Werkzeugen.  
 
 ## Aufgabe
 **Pipelines erstellen**

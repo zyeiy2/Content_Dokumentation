@@ -71,7 +71,7 @@ Um ein PAT zu erstellen:
 ###### App Registration
 1. Erstellen einer [App-Registration](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app) und anlegen eines [Client Secrets](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app#add-a-client-secret). 
 1. Vergeben von Contributor Rechten auf der Ressourcengruppe oder Subscription. 
-1. Analge einer mit Service Connection `Client Secret` oder `Federated Credentials`.
+1. Analge einer mit Service Connection `Client Secret`.
 
 ###### Service Connection - Client Secret
 

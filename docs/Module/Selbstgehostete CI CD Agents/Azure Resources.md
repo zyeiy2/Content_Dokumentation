@@ -47,6 +47,7 @@ graph TD
     style F fill:#0078D7,stroke:#005A9E,color:#ffffff
   end
 
+
   %% Flow
   A --> B
   B -->|USESUBNET=true| B1
@@ -76,19 +77,34 @@ graph TD
     style L2 fill:#0078D7,stroke:#005A9E,color:#ffffff
   end
 
+  %% DevOps 
+  subgraph DevOps 
+  A[Start der DevOps Pipeline]
+  C[Registrierung des Agents bei Azure DevOps]
+  D[Ausführung der Pipeline]
+  E[Deregistrierung des Agents nach der Ausführung]
+  style A fill:#107C10,stroke:#0B5C0B,color:#ffffff
+  style C fill:#107C10,stroke:#0B5C0B,color:#ffffff
+  style D fill:#107C10,stroke:#0B5C0B,color:#ffffff
+  style E fill:#107C10,stroke:#0B5C0B,color:#ffffff
+  end
+
+  %% Azure Resources
+  subgraph Azure
+  B[Start des Container App Jobs]  
+  F[Stoppen der Container App]  
+  style B fill:#0078D7,stroke:#005A9E,color:#ffffff
+  style F fill:#0078D7,stroke:#005A9E,color:#ffffff
+  end
+  
+  %% Flow
   A[Start der DevOps Pipeline] --> B[Start des Container App Jobs]
   B --> C[Registrierung des Agents bei Azure DevOps]
   C --> D[Ausführung der Pipeline]
   D --> E[Deregistrierung des Agents nach der Ausführung]
   E --> F[Stoppen der Container App]
 
-  %% Step Styles
-  style A fill:#107C10,stroke:#0B5C0B,color:#ffffff
-  style B fill:#0078D7,stroke:#005A9E,color:#ffffff
-  style C fill:#107C10,stroke:#0B5C0B,color:#ffffff
-  style D fill:#107C10,stroke:#0B5C0B,color:#ffffff
-  style E fill:#107C10,stroke:#0B5C0B,color:#ffffff
-  style F fill:#0078D7,stroke:#005A9E,color:#ffffff
+
 ```
 
 1. **Ausführung der Azure Pipeline**  

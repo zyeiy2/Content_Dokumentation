@@ -22,12 +22,12 @@ Die Spielenden übernehmen die Rollen realer Komponenten und simulieren den Buil
 # Spielablauf  
 Phase 1 – Erster Build  
 1. Dockerfile Master übergibt das Dockerfile (Zettel mit Anweisungen) an die Container Registry.  
-1. Container Registry baut das Image und speichert es.  
-1. Placeholder Agent erkennt: "Ein neuer Pipeline-Job will laufen!"  
-1. Placeholder aktiviert den Job Agent.  
-1. Container Instanz zieht das Image aus der Registry und startet es. Meldet: "Container läuft!"  
-1. Job Agent registriert sich im Agent Pool.  
-1. Azure DevOps Pipeline wird ausgeführt .  
+2. Container Registry baut das Image und speichert es.  
+3. Placeholder Agent erkennt: "Ein neuer Pipeline-Job will laufen!"  
+4. Placeholder aktiviert den Job Agent.  
+5. Container Instanz zieht das Image aus der Registry und startet es. Meldet: "Container läuft!"  
+6. Job Agent registriert sich im Agent Pool.  
+7. Azure DevOps Pipeline wird ausgeführt .  
 
 **Rollenkarten**  
 **Dockerfile Master**  

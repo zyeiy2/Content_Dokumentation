@@ -269,7 +269,7 @@ Das `start.sh`-Skript sorgt dafür, dass sich der Container beim Start automatis
 
 ## Dockerfile
 
-:::mermaid 
+```mermaid 
 flowchart TD
     subgraph Builder-Stage [Stage 1: builder]
         A1[Starte mit Ubuntu 20.04]
@@ -292,7 +292,7 @@ flowchart TD
     A1 --> A2 --> A3 --> A4 --> A5
     A5 --> B1
     B1 --> B2 --> B3 --> B4 --> B5 --> B6 --> B7
-:::
+```
 
 
 
